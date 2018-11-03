@@ -1,0 +1,43 @@
+{% extends 'layout.html' %} {% block body %}
+<main class="" id="main-collapse">
+
+  <div class="hero-full-wrapper">
+    <div class="grid">
+      <div class="gutter-sizer"></div>
+      <div class="grid-sizer"></div>
+
+      {% for category in categories %}
+      <div class="grid-item">
+        <img class="img-responsive" alt="" src="static/{{category.picture}}">
+        <a href="./categories/{{category.name}}" class="project-description">
+          <div class="project-text-holder">
+            <div class="project-text-inner">
+              <h3>{{category.name}}</h3>
+              <p>Discover more</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    <p style="float:right;"><a class="btn btn-success" href="categories/new" role="button">Add A Category</a></p>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      masonryBuild();
+    });
+  </script>
+
+</main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    navbarToggleSidebar();
+    navActivePage();
+  });
+</script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='main.85741bff.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="Page description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link href="{{ url_for('static', filename='apple-icon-180x180.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+
+
+
+  <title>Catalog App</title>
+
+  <link href="{{ url_for('static', filename='main.82cfd66e.css') }}" rel="stylesheet">
+</head>
+
+<body>
+  <header class="">
+    <div class="navbar navbar-default visible-xs">
+      <button type="button" class="navbar-toggle collapsed">
+       <span class="sr-only">Toggle navigation</span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+     </button>
+      <a href="../" class="navbar-brand">Mashup Template</a>
+    </div>
+
+    <nav class="sidebar">
+      <div class="navbar-collapse" id="navbar-collapse">
+        <div class="site-header hidden-xs">
+          <a class="site-brand" href="../" title="">
+             <img class="img-responsive site-logo" alt="" src="{{ url_for('static', filename='logo.png') }}">
+             Catalog App
+           </a>
+          <p>A list of products for each sport!</p>
+          <!-- SIGN IN ELEMENT -->
+          {% if 'username' not in session %}
+          <small class="text-muted">Not signed in? <a href="/login">Sign in now!</a></small>
+          {% else %}
+          <small class="text-muted">Hello {{session['username']}}!<a href="/disconnect"> Disconnect from here</a></small>
+          {% endif %}
+          {% with messages = get_flashed_messages() %} {% if messages %}
+          <li>
+          {% for message in messages %}
+          <small class="text-muted">{{message}}</small>
+          {% endfor %}
+          </li>
+          {% endif %} {% endwith %}
+        </div>
+
+        <ul class="nav">
+          <li><a href="/../categories" title="">Home</a></li>
+          <li><a href="/../about" title="">About</a></li>
+          <li><a href="/../contact" title="">Contact</a></li>
+
+        </ul>
+
+        <nav class="nav-footer">
+          <p class="nav-footer-social-buttons">
+            <a class="fa-icon" href="https://www.instagram.com/ahmed_elkashef_/" title="">
+             <i class="fa fa-instagram"></i>
+           </a>
+            <a class="fa-icon" href="https://www.facebook.com/Ahmed0Elkashef" title="">
+             <i class="fa fa-facebook"></i>
+           </a>
+            <a class="fa-icon" href="https://twitter.com/Ahmed_Salah005" title="">
+             <i class="fa fa-twitter"></i>
+           </a>
+          </p>
+          <p>© Catalog App | Website created with
+            <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup Template
+            </a>/
+            <a href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash
+            </a> By:
+            <a href="https://www.linkedin.com/in/ahmed-elkashef-0954b191/" title="FullStack Web Developer">Ahmed Elkashef
+            </a>
+          </p>
+        </nav>
+      </div>
+    </nav>
+  </header>
+  {% block body %}{% endblock %}
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      navbarToggleSidebar();
+      navActivePage();
+    });
+  </script>
+  <script type="text/javascript" src="{{ url_for('static', filename='main.85741bff.js') }}"></script>
+
+</body>
+
+</html>

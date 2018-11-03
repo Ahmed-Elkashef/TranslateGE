@@ -1,0 +1,36 @@
+{% extends 'layout.html' %} {% block body %}
+<main class="" id="main-collapse">
+
+  <div class="row">
+    <div class="col-xs-12 col-md-9">
+
+      <div class="section-container-spacer">
+        <h1>{{category_item.name}}</h1>
+      </div>
+      <div class="section-container-spacer">
+        <h3>{{category_item.name}} - {{category_item.price}}</h3>
+        <p><img class="img-responsive" alt="" src="/static/{{category_item.picture}}"></p>
+        <p>{{category_item.description}}</p>
+        <br>
+      </div>
+      <div style="display:flex;justify-content:flex-end;">
+        <p><a class="btn btn-default" href="/categories/{{category.name}}" role="button" style="margin:5px;">Go Back »</a></p>
+        <p><a class="btn btn-success" href="/{{category.name}}/{{category_item.id}}/updateItem" role="button" style="margin:5px;">Update This Item</a></p>
+        <p><a class="btn btn-danger" href="/{{category.name}}/{{category_item.id}}/deleteItem" role="button" style="margin:5px;">Delete This Item</a></p>
+      </div>
+    </div>
+
+  </div>
+
+
+</main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    navbarToggleSidebar();
+    navActivePage();
+  });
+</script>
+
+<script type="text/javascript" src="/static/main.85741bff.js"></script>
+{% endblock %}
