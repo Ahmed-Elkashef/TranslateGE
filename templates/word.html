@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<!-- Main Content -->
+<section class="vocab-section">
+  <h1>{{word.vocabulary_word}}<a data-audio="#" class="audio"></a></h1>
+  <p class="short_paragraph">{{word.short_description}}</p>
+  <p class="long_paragraph">{{word.long_description}}</p>
+</section>
+{% endblock %}

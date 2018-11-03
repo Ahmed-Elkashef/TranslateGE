@@ -19,7 +19,7 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 # German Words
-Katze = Word(word='katze', short_description="What's another name for the four-legged feline that"
+Katze = Word(vocabulary_word='katze', short_description="What's another name for the four-legged feline that"
 +" lies around on your keyboard all day and purrs? You might call it 'Fluffy,' but it's also known"
 +" as a cat.", long_description="If you're in the market for a pet cat, just make sure it meows, "
 +"and doesn't roar like the lion, tiger, or jaguar, all of which are in the same family as the"

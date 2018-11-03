@@ -11,7 +11,7 @@ class Word(Base):
     __tablename__ = 'word'
 
     id = Column(Integer)
-    word = Column(String(250), nullable=False, primary_key=True)
+    vocabulary_word = Column(String(250), nullable=False, primary_key=True)
     short_description = Column(String(250), nullable=False)
     long_description = Column(String(250), nullable=False)
     voice_clip = Column(String(250))
