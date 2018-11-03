@@ -49,13 +49,7 @@
     top: 200px;
     transition-duration: 0.6s;
   }
-  #search:focus {
-    top: 0px;
-  }
-  .site-heading {
-    transition-duration: 0.6s;
-  }
-  .overlay {
+  .site-heading, .masthead, .overlay {
     transition-duration: 0.6s;
   }
   </style>
@@ -88,7 +82,7 @@
   </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('/static/img/home-bg.jpg'); height:500px;">
+  <header class="masthead" style="background-image: url('/static/img/home-background.jpg'); height:500px;">
     <div class="overlay"></div>
     <div class="container">
 
@@ -164,13 +158,17 @@
     $(function () {
           $("#search").blur();
       });
-    $("#search").focus(function() {
+    $("#search").keypress(function() {
+      $("#search").css("top","0");
       $(".site-heading").css("opacity","0");
       $(".overlay").css("opacity","1");
+      $(".masthead").css("height", "70px");
     });
     $("#search").focusout(function() {
+      $("#search").css("top","200px");
       $(".site-heading").css("opacity","1");
       $(".overlay").css("opacity","0.5");
+      $(".masthead").css("height", "500px");
     });
 
   </script>
