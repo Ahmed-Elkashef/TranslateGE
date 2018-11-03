@@ -3,7 +3,7 @@ from flask import flash
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 from sqlalchemy import create_engine, asc
 from sqlalchemy.orm import sessionmaker
-from database_setup import Category, CategoryItem, Base, User
+from database_setup import Word, Base
 from flask import session as login_session
 import random
 import string
@@ -248,35 +248,10 @@ def fbdisconnect():
     return "you have been logged out"
 
 
-# JSON APIs to view Restaurant Information
-
-@app.route('/categories/<category>/JSON')
-def CategoryJSON(category):
-    catalog = session.query(Category).filter_by(name=category).one()
-    items = session.query(CategoryItem).filter_by(
-        category_id=catalog.id).all()
-    return jsonify(CatalogItems=[i.serialize for i in items])
-
-
-@app.route('/categories/<category>/<int:item_id>/JSON')
-def CategoryItemJSON(category, item_id):
-    category = session.query(Category).filter_by(name=category).one()
-    Catalog_Item = session.query(CategoryItem).filter_by(id=item_id).one()
-    return jsonify(Catalog_Item=Catalog_Item.serialize)
-
-
-@app.route('/categories/JSON')
-def CategoriesJSON():
-    categories = session.query(Category).all()
-    return jsonify(Categories=[r.serialize for r in categories])
-
-
 # Show all categories
 @app.route('/')
-@app.route('/categories')
 def index():
-    categories = session.query(Category).order_by(asc(Category.name))
-    return render_template('index.html', categories=categories)
+    return render_template('index.html')
 
 
 # Show a single category with list of items
