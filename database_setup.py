@@ -16,6 +16,17 @@ class Word(Base):
     long_description = Column(String(250), nullable=False)
     voice_clip = Column(String(250))
 
+    @property
+    def serialize(self):
+        """Return object data in easily serializeable format"""
+        return {
+            'vocabulary_word': self.vocabulary_word,
+            'id': self.id,
+            'short_description': self.short_description,
+            'long_description': self.long_description,
+            'voice_clip': self.voice_clip
+        }
+
 
 engine = create_engine('sqlite:///words.db')
 

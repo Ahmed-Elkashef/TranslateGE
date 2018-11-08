@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect, jsonify
 from flask import flash
 from flask_uploads import UploadSet, configure_uploads, IMAGES
-from sqlalchemy import create_engine, asc
+from sqlalchemy import create_engine, asc, literal
 from sqlalchemy.orm import sessionmaker
 from database_setup import Word, Base
 from flask import session as login_session
@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 CLIENT_ID = json.loads(
     open('client_secrets.json', 'r').read())['web']['client_id']
-APPLICATION_NAME = "Catalog App"
+APPLICATION_NAME = "TranslateGe"
 
 # Instantiate the uploads object
 photos = UploadSet('photos', IMAGES)
@@ -49,8 +49,8 @@ def login():
 
 # Show all categories
 @app.route('/')
-@app.route('/worterbuch')
-@app.route('/worterbuch/')
+#@app.route('/worterbuch')
+#@app.route('/worterbuch/')
 def index():
     return render_template('index.html')
 
@@ -60,8 +60,14 @@ def showWord(vocabWord):
     word = session.query(Word).filter_by(vocabulary_word = vocabWord).one()
     return render_template('word.html', word = word)
 
+# answer the autocomplete query
+@app.route('/worterbuch/autocomplete=<autocompleteword>')
+def showAutoComplete(autocompleteword):
+    suggestions = session.query(Word).filter_by(vocabulary_word = autocompleteword).all()
+    return jsonify(suggestions=[suggestion.serialize for suggestion in suggestions])
+
 # Show a single category with list of items
-@app.route('/categories/<categoryName>')
+@app.route('/categories/autocomplete?search=<categoryName>')
 def showCategory(categoryName):
     category = session.query(Category).filter_by(name=categoryName).one()
     category_items = session.query(CategoryItem).filter_by(category_id=category.id).all()

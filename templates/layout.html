@@ -91,7 +91,6 @@
 
           <div class="wrapper" style="text-align:center;padding: 15px 20px;">
             <input style="width:60%;border: 4px solid darkgrey;border-radius: 5px;" id="search" type="text" autofocus="" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off">
-            <!--<button class="btn btn-success">Suchen</button>-->
           </div>
 
           <div class="site-heading">
@@ -158,11 +157,18 @@
     $(function () {
           $("#search").blur();
       });
-    $("#search").keypress(function() {
+    $("#search").keypress(function(event) {
       $("#search").css("top","0");
       $(".site-heading").css("opacity","0");
       $(".overlay").css("opacity","1");
       $(".masthead").css("height", "70px");
+    });
+    $("#search").keyup(function() {
+      var value = $('#search').val();
+      var search_url = "/worterbuch/autocomplete="+value;
+      $.ajax({url: search_url, success: function(result){
+          console.log(result);
+      }});
     });
     $("#search").focusout(function() {
       $("#search").css("top","200px");
@@ -170,8 +176,9 @@
       $(".overlay").css("opacity","0.5");
       $(".masthead").css("height", "500px");
     });
-
   </script>
+  <!-- ajax request -->
+
 </body>
 
 </html>
