@@ -63,7 +63,7 @@ def showWord(vocabWord):
 # answer the autocomplete query
 @app.route('/worterbuch/autocomplete=<autocompleteword>')
 def showAutoComplete(autocompleteword):
-    suggestions = session.query(Word).filter_by(vocabulary_word = autocompleteword).all()
+    suggestions = session.query(Word).filter(Word.vocabulary_word.contains(autocompleteword)).all()
     return jsonify(suggestions=[suggestion.serialize for suggestion in suggestions])
 
 # Show a single category with list of items
