@@ -21,7 +21,17 @@
   <!-- Custom styles for this template -->
   <link href="/static/css/clean-blog.min.css" rel="stylesheet">
 
+  <!-- fav icon -->
+  <link rel="shortcut icon" type="image/png" href="/static/img/fav-icon.png"/>
+
+  <!-- d3pie -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.7.2/d3.min.js"></script>
+  <script src="/static/d3pie.min.js"></script>
+
   <style>
+  .site-heading {
+      padding: 200px 0 0 0 !important;
+  }
   section.lowdown {
       padding-bottom: 2em;
       background-color: #f9f9f9;
@@ -37,7 +47,7 @@
     margin-bottom: 0;
   }
   body > header > div.container > div {
-    height: 70px;
+    height: 115px;
   }
   .vocab-section {
     padding-left: 20%;
@@ -49,8 +59,47 @@
     top: 200px;
     transition-duration: 0.6s;
   }
-  .site-heading, .masthead, .overlay {
-    transition-duration: 0.6s;
+  .site-heading, .masthead, .overlay, .auto-complete {
+    transition-duration: 0.9s;
+  }
+  .auto-complete {
+    width: 100%;
+    background-color: #212529;
+    padding: 10px;
+  }
+  .auto-complete p {
+    color: white;
+    margin: 0;
+    padding: 10px 10px 10px 30px;
+  }
+  .overlay {
+    background-image: linear-gradient(to right, #328AC2 , #3657A9);
+    opacity: 0.8;
+  }
+  .donate {
+    color: orange !important;
+  }
+  .inline-description-word, .inline-description-description {
+    display: inline;
+  }
+  .inline-description-word {
+    font-weight: bold;
+  }
+  .inline-description-description {
+    font-size: medium;
+    padding-left: 5px !important;
+  }
+  .a-href-auto-complete {
+    text-decoration: none !important;
+  }
+  .auto-complete:hover {
+    opacity: 0.8;
+  }
+  .logo {
+    width: 25%;
+  }
+  .liquid {
+    transition-duration: 0.9s;
   }
   </style>
 </head>
@@ -60,7 +109,8 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="index.html">TranslateGe</a>
+      <img class="navbar-brand logo" src="/static/img/TGE-logo-white.png" href="/">
+      <!-- <a class="navbar-brand" href="/">TranslateGe</a>-->
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -68,13 +118,13 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="/worterbuch/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="/about/">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link donate" href="/donate/">Donate</a>
           </li>
         </ul>
       </div>
@@ -140,7 +190,7 @@
             </li>
           </ul>
 
-          <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+          <p class="copyright text-muted">Copyrights Reserved &copy; TranslateGe 2018</p>
         </div>
       </div>
     </div>
@@ -151,33 +201,49 @@
   <script src="/static/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="/static/clean-blog.min.js"></script>
+  <!--<script src="/static/clean-blog.min.js"></script>-->
+
+  <!-- Custom scripts for this template -->
+  <script src="/static/clean-blog.js"></script>
 
   <script>
     $(function () {
           $("#search").blur();
       });
-    $("#search").keypress(function(event) {
-      $("#search").css("top","0");
-      $(".site-heading").css("opacity","0");
-      $(".overlay").css("opacity","1");
-      $(".masthead").css("height", "70px");
-    });
-    $("#search").keyup(function() {
+    function featureBlackBar() {
       var value = $('#search').val();
       var search_url = "/worterbuch/autocomplete="+value;
+      $(".a-href-auto-complete").remove();
+      $("#search").css("top","20px");
+      $(".site-heading").css("opacity","0");
+      $(".overlay").css("opacity","1");
+      $(".masthead").css("height", "115px");
       $.ajax({url: search_url, success: function(result){
-          console.log(result.suggestions["0"].vocabulary_word);
+        for ( var i = 0; i < result.suggestions.length; i++) {
+          $("<a class='a-href-auto-complete liquid' href='/worterbuch/"+result.suggestions[i].vocabulary_word+"'><div class='auto-complete'><p class='inline-description-word'>" + result.suggestions[i].vocabulary_word + "</p><p class='inline-description-description'>" + result.suggestions[i].short_description.substring(0, 100) + "..  </p></div></a>").insertAfter(".masthead");
+        }
+        setTimeout(function(){ $(".site-heading").css("display", "none"); }, 900);
       }});
-    });
-    $("#search").focusout(function() {
+    }
+
+    function unfeatureBlackBar() {
       $("#search").css("top","200px");
       $(".site-heading").css("opacity","1");
-      $(".overlay").css("opacity","0.5");
+      $(".overlay").css("opacity","0.8");
       $(".masthead").css("height", "500px");
+      $(".a-href-auto-complete").remove();
+      $(".site-heading").css("display", "");
+    }
+
+    $("#search").keyup(function() {
+      if ($("#search").val() == "") {
+        unfeatureBlackBar();
+      } else {
+        featureBlackBar();
+      }
     });
+
   </script>
-  <!-- ajax request -->
 
 </body>
 
