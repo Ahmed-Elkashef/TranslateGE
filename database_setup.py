@@ -14,6 +14,27 @@ class Word(Base):
     vocabulary_word = Column(String(250), nullable=False, primary_key=True)
     short_description = Column(String(250), nullable=False)
     long_description = Column(String(250), nullable=False)
+
+    word_familie_1st_label = Column(String(250))
+    word_familie_1st_score = Column(Integer)
+    word_familie_1st_color = Column(String(250))
+
+    word_familie_2nd_label = Column(String(250))
+    word_familie_2nd_score = Column(Integer)
+    word_familie_2nd_color = Column(String(250))
+
+    word_familie_3rd_label = Column(String(250))
+    word_familie_3rd_score = Column(Integer)
+    word_familie_3rd_color = Column(String(250))
+
+    word_familie_4th_label = Column(String(250))
+    word_familie_4th_score = Column(Integer)
+    word_familie_4th_color = Column(String(250))
+
+    word_familie_5th_label = Column(String(250))
+    word_familie_5th_score = Column(Integer)
+    word_familie_5th_color = Column(String(250))
+
     voice_clip = Column(String(250))
 
     @property

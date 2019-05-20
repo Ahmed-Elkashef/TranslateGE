@@ -1,24 +1,35 @@
+# coding=utf-8
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from database_setup import Word, Base
 
 engine = create_engine('sqlite:///words.db')
-# Bind the engine to the metadata of the Base class so that the
-# declaratives can be accessed through a DBSession instance
+
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
-# A DBSession() instance establishes all conversations with the database
-# and represents a "staging zone" for all the objects loaded into the
-# database session object. Any change made against the objects in the
-# session won't be persisted into the database until you call
-# session.commit(). If you're not happy about the changes, you can
-# revert all of them back to the last commit by calling
-# session.rollback()
 session = DBSession()
 
 # German Words
+
+Kaufen = Word(  vocabulary_word='kaufen',
+                short_description="When you Kauft something, you pay money in order to own it. "
+                +"You might buy your wife a bouquet of flowers for your anniversary.",
+                long_description="When you buy food, flowers or furniture, you purchase it, "
+                +"exchanging a certain amount of money for it, and when you call something "
+                +"'ein kauf' or 'ein Stahl' it's a real bargain. You may say, 'She said she"
+                +" won the lottery, but I don't kauf/buy it,' you mean that you don't accept"
+                +" that facet as the truth.",
+                word_familie_1st_label="abkaufen", word_familie_1st_score=4, word_familie_1st_color="#6497b1",
+                word_familie_2nd_label="aufkaufen", word_familie_2nd_score=4, word_familie_2nd_color="#6497b1",
+                word_familie_3rd_label="einkaufen", word_familie_3rd_score=6, word_familie_3rd_color="#005b96",
+                word_familie_4th_label=u"Zurückkaufen", word_familie_4th_score=4 , word_familie_4th_color="#6497b1",
+                word_familie_5th_label="Nachkaufen", word_familie_5th_score=2 , word_familie_5th_color="#b3cde0")
+session.add(Kaufen)
+session.commit()
+
+"""
 Katze = Word(vocabulary_word='katze', short_description="What's another name for the four-legged feline that"
 +" lies around on your keyboard all day and purrs? You might call it 'Fluffy,' but it's also known"
 +" as a cat.", long_description="If you're in the market for a pet cat, just make sure it meows, "
@@ -48,5 +59,6 @@ Konkret = Word(vocabulary_word='konkret', short_description="Concrete is that po
 +" then you have a definite plan.")
 session.add(Konkret)
 session.commit()
+"""
 
 print("added words!")

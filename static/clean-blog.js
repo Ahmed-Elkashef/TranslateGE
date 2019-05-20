@@ -12,7 +12,7 @@
 
   // Show the navbar when the page is scrolled up
   var MQL = 992;
-
+/*
   //primary navigation slide-in effect
   if ($(window).width() > MQL) {
     var headerHeight = $('#mainNav').height();
@@ -35,11 +35,10 @@
           $('#mainNav').removeClass('is-visible');
           if (currentTop > headerHeight && !$('#mainNav').hasClass('is-fixed')) {
               $('#mainNav').addClass('is-fixed');
-              $(".logo").attr("src","/static/img/TGE-logo-dark.png");
           }
         }
         this.previousTop = currentTop;
       });
   }
-
+*/
 })(jQuery); // End of use strict

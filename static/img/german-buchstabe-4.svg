@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="45" viewBox="0 0 35 45">
+    <defs>
+        <style>
+            .cls-1{fill:#fff}.cls-2{fill:#0b1c48}.cls-3{filter:url(#Path_302)}
+        </style>
+        <filter id="Path_302" width="35" height="45" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur result="blur" stdDeviation="2.5"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g id="Group_509" data-name="Group 509" transform="translate(-1114.499 -537.5)">
+        <g class="cls-3" transform="translate(1114.5 537.5)">
+            <path id="Path_302-2" d="M5 0h10a5 5 0 0 1 5 5v20a5 5 0 0 1-5 5H5a5 5 0 0 1-5-5V5a5 5 0 0 1 5-5z" class="cls-1" data-name="Path 302" transform="translate(7.5 7.5)"/>
+        </g>
+        <path id="Path_236" d="M-4.509-15.2a2.2 2.2 0 0 1-.312-1.2 2.089 2.089 0 0 1 .321-1.2.927.927 0 0 1 .777-.479.927.927 0 0 1 .777.479 2.089 2.089 0 0 1 .321 1.19 2.112 2.112 0 0 1-.33 1.2.944.944 0 0 1-.786.492.9.9 0 0 1-.768-.482zm4.089.492a.923.923 0 0 1-.78-.492 2.13 2.13 0 0 1-.321-1.19 2.13 2.13 0 0 1 .321-1.19.923.923 0 0 1 .777-.492.927.927 0 0 1 .777.479 2.089 2.089 0 0 1 .321 1.19 2.156 2.156 0 0 1-.321 1.2.923.923 0 0 1-.774.493zm-3.732 12.57A2.5 2.5 0 0 0-2-.811 2.5 2.5 0 0 0 .152-2.138 6.28 6.28 0 0 0 1-5.572a6.28 6.28 0 0 0-.848-3.433A2.5 2.5 0 0 0-2-10.332a2.5 2.5 0 0 0-2.152 1.327A6.28 6.28 0 0 0-5-5.572a6.28 6.28 0 0 0 .848 3.434zM1.571-.25A4.187 4.187 0 0 1-2 1.925 4.187 4.187 0 0 1-5.571-.25 9.484 9.484 0 0 1-7-5.572a9.484 9.484 0 0 1 1.429-5.321A4.187 4.187 0 0 1-2-13.068a4.187 4.187 0 0 1 3.571 2.175A9.484 9.484 0 0 1 3-5.572 9.484 9.484 0 0 1 1.571-.25z" class="cls-2" data-name="Path 236" transform="translate(1134 568.074)"/>
+    </g>
+</svg>

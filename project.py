@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, url_for, redirect, jsonify
-from flask import flash
+from flask import flash, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 from sqlalchemy import create_engine, asc, literal
@@ -36,6 +36,13 @@ session = DBSession()
 def index():
     return render_template('index.html')
 
+# serve static files
+@app.route('/static_files/<path:path>')
+def send_js(path):
+    print(path)
+    return send_from_directory('static_files', path)
+
+
 # redirect to a word Page
 @app.route('/worterbuch/<vocabWord>')
 def showWord(vocabWord):
@@ -58,8 +65,20 @@ def about():
 def contact():
     return render_template('contact.html')
 
+# handle 500 error
+@app.errorhandler(500)
+def internal_server_error(e):
+	return render_template('requestWord.html', error=e), 500
+
+# prevent cached responses
+if app.config["DEBUG"]:
+    @app.after_request
+    def after_request(response):
+        response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, public, max-age=0"
+        response.headers["Expires"] = 0
+        response.headers["Pragma"] = "no-cache"
+        return response
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
-    app.run()
     app.run(host='0.0.0.0', port=3000)

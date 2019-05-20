@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="45" viewBox="0 0 35 45">
+    <defs>
+        <style>
+            .cls-1{fill:#fff}.cls-2{fill:#0b1c48}.cls-3{filter:url(#Rectangle_753)}
+        </style>
+        <filter id="Rectangle_753" width="35" height="45" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur result="blur" stdDeviation="2.5"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g id="Group_506" data-name="Group 506" transform="translate(-1143.5 -537.5)">
+        <g class="cls-3" transform="translate(1143.5 537.5)">
+            <rect id="Rectangle_753-2" width="20" height="30" class="cls-1" data-name="Rectangle 753" rx="5" transform="translate(7.5 7.5)"/>
+        </g>
+        <path id="Path_235" d="M-4.067-15.2a2 2 0 0 1-.357-1.2 1.9 1.9 0 0 1 .367-1.19 1.089 1.089 0 0 1 .888-.479 1.089 1.089 0 0 1 .888.479 1.9 1.9 0 0 1 .367 1.19 1.92 1.92 0 0 1-.378 1.2 1.108 1.108 0 0 1-.9.492 1.056 1.056 0 0 1-.875-.492zm4.673.492a1.081 1.081 0 0 1-.888-.492 1.934 1.934 0 0 1-.367-1.19 1.934 1.934 0 0 1 .367-1.19 1.081 1.081 0 0 1 .888-.492 1.089 1.089 0 0 1 .888.479 1.9 1.9 0 0 1 .367 1.19 1.956 1.956 0 0 1-.367 1.2 1.081 1.081 0 0 1-.888.493zm.908 9.74v-7.88H3.8V1.706H1.514V-.948a5.072 5.072 0 0 1-1.52 2.107 3.309 3.309 0 0 1-2.094.766A3.544 3.544 0 0 1-5.067.42 7.141 7.141 0 0 1-6.2-3.93v-8.919h2.286v7.989q0 4.022 2.49 4.022A2.617 2.617 0 0 0 .637-1.892a4.7 4.7 0 0 0 .877-3.078z" class="cls-2" data-name="Path 235" transform="translate(1162.199 568.074)"/>
+    </g>
+</svg>
