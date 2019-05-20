@@ -1,29 +1,251 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block body %}
-    <!-- Main Content -->
-    <section class="lowdown content-wrapper">
+<head>
 
-      <div class="centeredContent">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-        <h2 style="padding-top: 50px;padding-bottom: 30px;">Look up a word, learn it forever.</h2>
+  <title>Translate Ge - Learn German Vocabulary</title>
 
-        <div style="display:flex;">
-          <div class="col">
-            <h3>Don’t just memorize. Achieve mastery.</h3>
-            <p>Ditch the flash cards and stop memorizing definitions. TranslateGe.com teaches you words by systematically exposing you to a wide array of question types and activities that will help you understand all the meanings and nuances of every word you’re learning.</p>
-            <p>Even after you’ve achieved mastery, we’ll continue to reinforce what you have learned to make sure that it all stays fresh in your memory.</p>
+  <!-- Bootstrap core CSS -->
+  <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="/static/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="/static/css/clean-blog.css" rel="stylesheet">
+
+  <!-- fav icon -->
+  <link rel="shortcut icon" type="image/png" href="/static/img/fav-icon.png"/>
+
+  <!-- Montserrat Font -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+
+    <div class="container">
+
+      <!-- logo -->
+      <a href="/"><img class="navbar-brand logo" src="/static/img/TGE-logo-white.png" ></a>
+
+      <!-- hamburger menu -->
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- navigation menu items -->
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link donate" href="/donate/">Donate</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+
+      <!-- Row containing the main search bar and title -->
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+          <!-- site heading -->
+          <div class="site-heading">
+            <h1 class="Translate-English-German-Dictionary">Translate German</h1>
+            <span class="subheading">Search a German word, learn it für immer.</span>
           </div>
 
-          <div class="col">
-            <h3>Get the lowdown on every word.</h3>
-            <p>Look up a word in <a href="/worterbuch/">our dictionary</a> — you’ll read a friendly explanation that you'll actually remember. It’s as if your favorite teacher were explaining the word to you.</p>
-            <p>Clever usage tips and real-world examples show you how words live in the wild so you’ll be more confident using them yourself.</p>
-            <p>See a word you’d like to know better? Click "Learn this Word" and  add it to your learning program.</p>
+          <!-- search bar and elements -->
+          <!-- elements and icons -->
+          <div class="wrapper search-wrapper row">
+            <div class="col-sm-6 search-wrapper-language-switch-characters row">
+              <div class="col-sm-6 search-wrapper-icons">
+                <img class="language-switch-icon" src="/static/img/ger.svg">
+                <img class="language-switch-icon-arrow" src="/static/img/ger-eng-arrow.svg">
+                <img class="language-switch-icon" src="/static/img/eng.svg">
+              </div>
+              <div class="col-sm-6 search-wrapper-letter-icons">
+                <img class="language-letter-icon" id="buchstabeU" src="/static/img/german-buchstabe-1.svg">
+                <img class="language-letter-icon" id="buchstabeSS" src="/static/img/german-buchstabe-2.svg">
+                <img class="language-letter-icon" id="buchstabeA" src="/static/img/german-buchstabe-3.svg">
+                <img class="language-letter-icon" id="buchstabeO" src="/static/img/german-buchstabe-4.svg">
+              </div>
+            </div>
+            <!-- search bar -->
+            <div class="col-sm-6">
+              <div class="search-input-field-wrapper">
+                <input id="searching-input" class="search-input-field" type="text" autofocus="" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Suchen hier!" autofocus>
+              </div>
+              <!-- suggestions box -->
+              <div class="suggestions-box suggestions-box-inactive">
+                <div id="first_insert"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- trending words -->
+          <div class="trending-words-wrapper">
+            <p class="trending-words">Trending:</p>
+            <p class="trending-words-suggestions"></p>
           </div>
 
         </div>
       </div>
 
-    </section>
-{% endblock %}
+    </div>
+  </header>
+
+
+  <!-- german buchstaben around the page -->
+  <div class="middle-buchstaben-homepage">
+
+    <img src="/static/img/a-umlaut.svg" class="middle-buchstaben-homepage-a">
+    <img src="/static/img/o-umlaut.svg" class="middle-buchstaben-homepage-o">
+    <img src="/static/img/eszett.svg" class="middle-buchstaben-homepage-es">
+    <img src="/static/img/u-umlaut.svg" class="middle-buchstaben-homepage-u">
+
+  </div>
+
+
+  <!-- bottom boxes for homepage -->
+  <div class="bottom-boxes-homepage">
+
+    <div class="free-gift-wrapper">
+      <div class="free-gift-title">
+        <p>Free Gift</p><img src="/static/img/gift-icon.svg">
+      </div>
+      <div class="free-gift-text">
+        <p>Get the top A1 German Vocabulary</p>
+      </div>
+      <div class="free-gift-button">
+        <p>Get it Now in your Inbox!</p>
+      </div>
+    </div>
+
+    <div class="word-of-day-wrapper">
+      <div class="word-of-day-bubble">
+        <p>Schliessli ..</p>
+      </div>
+
+      <div class="word-of-day-box">
+        <p>Word of the day</p>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p class="copyright">TranslateGE &copy; 2019 All Rights Reserved | <a href="/privacy-policy">Privacy Policy</a> | <a href="cookie-policy">Cookie Policy</a> | <a href="/terms-and-conditions">Terms & Conditions</a></p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/static/jquery/jquery.min.js"></script>
+  <script src="/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="/static/clean-blog.js"></script>
+
+  <!-- Featuring and unfeaturing Suggestions -->
+  <script>
+
+    $(function () {
+          $("#searching-input").blur();
+    });
+
+    function featureSuggestions(searchInput) {
+      var search_url = "/worterbuch/autocomplete="+searchInput;
+      $(".new-suggestion").remove();
+      $(".suggestions-box").removeClass("suggestions-box-inactive");
+      $(".suggestions-box").addClass("suggestions-box-active");
+      $(".trending-words-wrapper").css("opacity","0");
+
+      $.ajax({url: search_url, success: function(result){
+        for ( var i = 0; i < result.suggestions.length; i++) {
+          var suggested_word = result.suggestions[i].vocabulary_word;
+          var the_rest_of_word = suggested_word.split(searchInput)[1];
+          $("<div class='new-suggestion'><div class='auto-complete' style='display:flex;justify-content: space-between;'><p class='suggestion-word'>" + searchInput + "<span class='rest_of_word'>" + the_rest_of_word +  "</span></p><a class='link-button' href='/worterbuch/"+suggested_word+"'>View</a></div><p class='suggestion-description'>" + result.suggestions[i].short_description.substring(0, 30) + "..  </p></div></a></div>").insertAfter("#first_insert");
+        }
+      }});
+    }
+
+    function unfeatureSuggestions() {
+      $(".new-suggestion").remove();
+      $(".site-heading").css("display", "");
+      $(".suggestions-box").removeClass("suggestions-box-active");
+      $(".suggestions-box").addClass("suggestions-box-inactive");
+      $(".trending-words-wrapper").css("opacity","1");
+    }
+
+    $("#searching-input").keyup(function() {
+      var searchInput = $('#searching-input').val();
+      if (searchInput == "") {
+        unfeatureSuggestions();
+      } else {
+        featureSuggestions(searchInput);
+      }
+    });
+
+    /* inserting german alphabet upon click*/
+    $("#buchstabeA").click(function() {
+      $("#searching-input").val(function() {
+          return this.value + 'ä';
+      });
+      $("#searching-input").focus();
+      var searchInput = $('#searching-input').val();
+      featureSuggestions(searchInput);
+    });
+    $("#buchstabeO").click(function() {
+      $("#searching-input").val(function() {
+          return this.value + 'ö';
+      });
+      $("#searching-input").focus();
+      var searchInput = $('#searching-input').val();
+      featureSuggestions(searchInput);
+    });
+    $("#buchstabeSS").click(function() {
+      $("#searching-input").val(function() {
+          return this.value + 'ß';
+      });
+      $("#searching-input").focus();
+      var searchInput = $('#searching-input').val();
+      featureSuggestions(searchInput);
+    });
+    $("#buchstabeU").click(function() {
+      $("#searching-input").val(function() {
+          return this.value + 'ü';
+      });
+      $("#searching-input").focus();
+      var searchInput = $('#searching-input').val();
+      featureSuggestions(searchInput);
+    });
+  </script>
+
+</body>
+
+</html>
