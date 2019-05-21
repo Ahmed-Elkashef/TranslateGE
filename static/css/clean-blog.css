@@ -474,15 +474,15 @@ body > header > div.container > div {
 .suggestion-word {
   color: #0b1c48;
   text-indent: 0;
-  font-weight: normal;
+  font-size: small;
+  font-weight: bold;
 }
 .suggestion-description {
   font-family: 'Montserrat', Arial;
-  font-size: small;
+  font-size: x-small;
   color: #d2d8dc;
   text-indent: 0;
   text-align: left;
-  padding: 0px 10px 5px 10px;
   margin: 0;
 }
 .a-href-auto-complete {
@@ -515,7 +515,7 @@ body > header > div.container > div {
 .search-wrapper {
   width: 500px;
   margin: 0 auto;
-  height: 40px;
+  height: 30px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.16);
   text-align:center;
   transition-duration: 0.6s;
@@ -525,17 +525,17 @@ body > header > div.container > div {
   padding: 0;
 }
 .search-input-field-wrapper {
-  height: 40px;
+  height: 30px;
   padding: 0;
 }
 .search-input-field {
+  width: 305px;
   background-image: url("/static/img/search-icon.svg");
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: 95%;
   text-indent: 10px;
   font-family: 'Montserrat', Arial;
-  width: 280px;
   position: relative;
   right: 38px;
   border-style: hidden;
@@ -549,24 +549,24 @@ body > header > div.container > div {
   outline: none;
 }
 .search-wrapper-language-switch-characters {
-  height: 40px;
+  height: 30px;
   background-color:#eeeeee;
   border-bottom-left-radius: 50px;
   border-top-left-radius:50px;
   padding-right: 5px;
 }
 .search-wrapper-icons {
-  height: 40px;
+  height: 30px;
   display:flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 7px;
   border-right: 1px solid gainsboro;
 }
 .search-wrapper-letter-icons {
-  height: 40px;
+  height: 30px;
   display:flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 7px;
 }
 .language-switch-icon {
   width: 30%;
@@ -727,7 +727,7 @@ body > header > div.container > div {
   width: 4%;
 }
 .suggestions-box {
-  width: 250px;
+  width: 280px;
   height: 200px;
   transition-duration: 0.5s;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.16);
@@ -745,7 +745,7 @@ body > header > div.container > div {
   opacity: 1;
   margin: 0 auto;
 }
-.link-button {
+.btn-link {
   position: relative;
   top: 3px;
   width: 85px;
@@ -757,7 +757,17 @@ body > header > div.container > div {
   background-color: #348eff;
   font-size: 13px;
   font-weight: bold;
+  text-decoration: none;
+  margin: 8px;
+}
+.btn-link:hover {
+  background-color: #00B0FF;
+  color: white;
+  text-decoration: none;
 }
 .rest_of_word {
   color: #348eff;
+}
+.new-suggestion {
+  display: flex;
 }

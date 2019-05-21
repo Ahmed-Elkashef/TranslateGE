@@ -13,20 +13,25 @@ session = DBSession()
 
 # German Words
 
-Kaufen = Word(  vocabulary_word='kaufen',
-                short_description="When you Kauft something, you pay money in order to own it. "
+Kaufen = Word(
+                vocabulary_word='kaufen',
+                translated_word='to buy',
+                wordtype="v", vocabulary_word_pron="kaufen",
+                primary_def="When you Kauft something, you pay money in order to own it. "
                 +"You might buy your wife a bouquet of flowers for your anniversary.",
-                long_description="When you buy food, flowers or furniture, you purchase it, "
-                +"exchanging a certain amount of money for it, and when you call something "
-                +"'ein kauf' or 'ein Stahl' it's a real bargain. You may say, 'She said she"
-                +" won the lottery, but I don't kauf/buy it,' you mean that you don't accept"
-                +" that facet as the truth.",
-                word_familie_1st_label="abkaufen", word_familie_1st_score=4, word_familie_1st_color="#6497b1",
-                word_familie_2nd_label="aufkaufen", word_familie_2nd_score=4, word_familie_2nd_color="#6497b1",
-                word_familie_3rd_label="einkaufen", word_familie_3rd_score=6, word_familie_3rd_color="#005b96",
-                word_familie_4th_label=u"Zurückkaufen", word_familie_4th_score=4 , word_familie_4th_color="#6497b1",
-                word_familie_5th_label="Nachkaufen", word_familie_5th_score=2 , word_familie_5th_color="#b3cde0")
+                primary_def_example="Ich werde heute ein neues Auto kaufen.",
+                word_family_1st="abkaufen", word_family_2nd="aufkaufen", word_family_3rd="einkaufen",
+                word_family_4th=u"Zurückkaufen", word_family_5th="Nachkaufen")
 session.add(Kaufen)
+session.commit()
+
+Klausurergebnisse = Word(
+                    vocabulary_word='Klausurergebnisse',
+                    translated_word='Exam Results',
+                    wordtype="v", vocabulary_word_pron="Klausur-ergebnisse",
+                    primary_def="Klausur is what you go for in the final study period to be examined of all the material you have learned throughout the semester. Ergibnes is the result of that Klausur. Klausurergebnisse are the biggest nightmares that each of us students have to deal with.",
+                    primary_def_example="Wann sind die Klausurergebnisse fertig?")
+session.add(Klausurergebnisse)
 session.commit()
 
 """

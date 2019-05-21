@@ -12,39 +12,28 @@ class Word(Base):
 
     id = Column(Integer)
     vocabulary_word = Column(String(250), nullable=False, primary_key=True)
-    short_description = Column(String(250), nullable=False)
-    long_description = Column(String(250), nullable=False)
-
-    word_familie_1st_label = Column(String(250))
-    word_familie_1st_score = Column(Integer)
-    word_familie_1st_color = Column(String(250))
-
-    word_familie_2nd_label = Column(String(250))
-    word_familie_2nd_score = Column(Integer)
-    word_familie_2nd_color = Column(String(250))
-
-    word_familie_3rd_label = Column(String(250))
-    word_familie_3rd_score = Column(Integer)
-    word_familie_3rd_color = Column(String(250))
-
-    word_familie_4th_label = Column(String(250))
-    word_familie_4th_score = Column(Integer)
-    word_familie_4th_color = Column(String(250))
-
-    word_familie_5th_label = Column(String(250))
-    word_familie_5th_score = Column(Integer)
-    word_familie_5th_color = Column(String(250))
-
+    translated_word = Column(String(250), nullable=False)
+    vocabulary_word_pron = Column(String(250))
+    primary_def = Column(String(250), nullable=False)
+    primary_def_example = Column(String(250), nullable=False)
+    wordtype = Column(String(250), nullable=False)
+    word_family_1st = Column(String(250))
+    word_family_2nd = Column(String(250))
+    word_family_3rd = Column(String(250))
+    word_family_4th = Column(String(250))
+    word_family_5th = Column(String(250))
     voice_clip = Column(String(250))
 
     @property
     def serialize(self):
         """Return object data in easily serializeable format"""
         return {
-            'vocabulary_word': self.vocabulary_word,
             'id': self.id,
-            'short_description': self.short_description,
-            'long_description': self.long_description,
+            'vocabulary_word': self.vocabulary_word,
+            'translated_word': self.translated_word,
+            'primary_def': self.primary_def,
+            'primary_def_example': self.primary_def_example,
+            'vocabulary_word_pron': self.vocabulary_word_pron,
             'voice_clip': self.voice_clip
         }
 

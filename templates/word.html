@@ -140,17 +140,25 @@
         <a data-audio="#" class="audio"></a>
         <h1 class="translated_word">= {{word.translated_word}}</h1>
 
-        <p class="primary_def">{{word.primary_def}}</p>
+        <p class="primary_def">Primary def ({{word.wordtype}}): {{word.primary_def}}</p>
+        <p>(Click "See more" below for other definitions)</p>
         <p class="primary_def_example">{{word.primary_def_example}}</p>
 
+        {% if not word.word_family_1st %}
         <div class="syn_acr">
-          <button></button>
-          <button></button>
-          <button></button>
-          <button></button>
-          <button></button>
-          <button></button>
+          <button>{{word.word_family_1st}}</button>
+          <button>{{word.word_family_2nd}}</button>
+          <button>{{word.word_family_3rd}}</button>
+          <button>{{word.word_family_4th}}</button>
+          <button>{{word.word_family_5th}}</button>
         </div>
+        {% endif %}
+
+        <script>
+          check_word_syn_acr = function() {
+            if word.
+          }
+        </script>
 
         <h3 id="inthefamily">In The Family</h3>
 
