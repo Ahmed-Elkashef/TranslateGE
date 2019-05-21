@@ -459,7 +459,7 @@ body > header > div.container > div {
   font-family: 'Montserrat', Arial;
   text-indent: 0;
   text-align: left;
-  width: 100%;
+  width: 60%;
   padding: 10px 10px 0px 10px;
 }
 .auto-complete p {
@@ -636,7 +636,6 @@ body > header > div.container > div {
   z-index: 1;
 }
 .word-of-day-bubble p {
-  /*font-family: Montserrat;*/
   font-size: 14px;
   font-weight: bold;
   text-align: left;
@@ -748,6 +747,7 @@ body > header > div.container > div {
 .btn-link {
   position: relative;
   top: 3px;
+  right: 30px;
   width: 85px;
   height: 25px;
   padding: 3px;
@@ -770,4 +770,7 @@ body > header > div.container > div {
 }
 .new-suggestion {
   display: flex;
+}
+.new-suggestion a {
+  width: 40%;
 }

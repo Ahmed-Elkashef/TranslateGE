@@ -190,7 +190,7 @@
       $.ajax({url: search_url, success: function(result){
         for ( var i = 0; i < result.suggestions.length; i++) {
           var suggested_word = result.suggestions[i].vocabulary_word;
-          var the_rest_of_word = suggested_word.split(capitalize(searchInput))[1];
+          var the_rest_of_word = capitalize(suggested_word).split(capitalize(searchInput))[1];
           $("<div class='new-suggestion'><div class='auto-complete'><p class='suggestion-word'>" + searchInput + "<span class='rest_of_word'>" + the_rest_of_word +  "</span></p><p class='suggestion-description'>" + result.suggestions[i].primary_def.substring(0, 30) + "..  </p></div><a href='/worterbuch/"+suggested_word+"'><button class='btn btn-link'>View</button></a></div></a></div>").insertAfter("#first_insert");
         }
       }});
