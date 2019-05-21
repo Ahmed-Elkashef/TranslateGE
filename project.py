@@ -72,5 +72,6 @@ def internal_server_error(e):
 
 
 if __name__ == '__main__':
+    app.debug = True
     app.secret_key = 'super_secret_key'
-    app.run(host='0.0.0.0', port=3000)
+    app.run(host='0.0.0.0', port=3000, threaded=False)
