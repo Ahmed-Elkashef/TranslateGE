@@ -29,7 +29,7 @@ Klausurergebnisse = Word(
                     vocabulary_word='Klausurergebnisse',
                     translated_word='Exam Results',
                     wordtype="v", vocabulary_word_pron="Klausur-ergebnisse",
-                    primary_def="Klausur is what you go for in the final study period to be examined of all the material you have learned throughout the semester. Ergibnes is the result of that Klausur. Klausurergebnisse are the biggest nightmares that each of us students have to deal with.",
+                    primary_def="Klausur is what you go for in the final study period to be examined of all the material you have learned throughout the semester. Ergibnes is the result of that Klausur.",
                     primary_def_example="Wann sind die Klausurergebnisse fertig?")
 session.add(Klausurergebnisse)
 session.commit()

@@ -34,7 +34,7 @@
 
 
   <style>
-  /* only for this page */
+    /* only for this page */
   .syn_acr {
     display: flex;
     justify-content: space-between;
@@ -45,6 +45,14 @@
   }
   .audio::after{
     content: '🔊';
+    font-size: 30px;
+    position: relative;
+    top: 4px;
+    left: 5px;
+    color: #2e7fe5;
+  }
+  .audio:hover:after {
+    cursor: pointer;
   }
   .family_words{
     display: flex;
@@ -85,6 +93,42 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: #2e7fe5;
+    display: inline-block;
+    font-size: xx-large;
+  }
+  .Pronunciation {
+    margin: auto 10px;
+    color: #707070;
+    font-family: Arial;
+  }
+  .translated_word {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #00b0ff;
+    font-size: xx-large;
+  }
+  .primary-definition-div {
+    margin: 30px 0;
+  }
+  .primary_def {
+    font-family: Montserrat;
+    color: #0b1c48;
+    font-weight: normal;
+    font-size: larger;
+    word-spacing: 2px;
+  }
+  .see-more-p {
+    font-family: Montserrat;
+    color: #348eff;
+    font-weight: bold;
+    font-size: larger;
+  }
+  .primary_def_example {
+    font-family: Montserrat;
+    color: #707070;
+    font-weight: bold;
+    font-size: larger;
   }
   </style>
 </head>
@@ -135,16 +179,21 @@
 
       <section class="vocab-section col-sm-7">
 
-        <h1 class="main_word">{{word.vocabulary_word}}</h1>
-        <span>(Pronunciation: "{{word.vocabulary_word_pron}}")</span>
-        <a data-audio="#" class="audio"></a>
-        <h1 class="translated_word">= {{word.translated_word}}</h1>
+        <div>
+          <div style="display: flex;">
+            <h1 class="main_word">{{word.vocabulary_word}}</h1>
+            <div class="Pronunciation"><span>(Pronunciation: "{{word.vocabulary_word_pron}}")</span><a data-audio="#" class="audio"></a></div>
+          </div>
+          <h1 class="translated_word">= {{word.translated_word}}</h1>
+        </div>
 
-        <p class="primary_def">Primary def ({{word.wordtype}}): {{word.primary_def}}</p>
-        <p>(Click "See more" below for other definitions)</p>
-        <p class="primary_def_example">{{word.primary_def_example}}</p>
+        <div class="primary-definition-div">
+          <p class="primary_def"><span style="font-weight:bold;">Primary def ({{word.wordtype}}):</span> {{word.primary_def}}</p>
+          <p class="see-more-p">(Click "See more" below for other definitions)</p>
+          <p class="primary_def_example">E.g. {{word.primary_def_example}}</p>
+        </div>
 
-        {% if not word.word_family_1st %}
+        {% if word.word_family_1st %}
         <div class="syn_acr">
           <button>{{word.word_family_1st}}</button>
           <button>{{word.word_family_2nd}}</button>
