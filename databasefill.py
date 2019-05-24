@@ -17,11 +17,17 @@ Kaufen = Word(
                 vocabulary_word='kaufen',
                 translated_word='to buy',
                 wordtype="v", vocabulary_word_pron="kaufen",
-                primary_def="When you Kauft something, you pay money in order to own it. "
-                +"You might buy your wife a bouquet of flowers for your anniversary.",
+                primary_def="When you Kauft something, you pay money in order to own it. You might buy your wife a bouquet of flowers for your anniversary.",
                 primary_def_example="Ich werde heute ein neues Auto kaufen.",
-                word_family_1st="abkaufen", word_family_2nd="aufkaufen", word_family_3rd="einkaufen",
-                word_family_4th=u"Zurückkaufen", word_family_5th="Nachkaufen")
+                syn1="einkaufen",syn2="ankaufen",ant1="verkaufen",ant2="boykottieren",
+                word_family_1st="abkaufen", word_family_1st_pron="ab-kaufen",
+                word_family_box1_primary_def="", word_family_box1_primary_def_example="",
+                word_family_2nd="aufkaufen", word_family_2nd_pron="auf-kaufen",
+                word_family_box2_primary_def="", word_family_box2_primary_def_example="",
+                word_family_3rd="einkaufen", word_family_3rd_pron="ein-kaufen",
+                word_family_box3_primary_def="", word_family_box3_primary_def_example="",
+                word_family_4th=u"Zurückkaufen", word_family_4th_pron=u"Zurück-kaufen",
+                word_family_box4_primary_def="", word_family_box4_primary_def_example="")
 session.add(Kaufen)
 session.commit()
 
@@ -30,7 +36,12 @@ Klausurergebnisse = Word(
                     translated_word='Exam Results',
                     wordtype="v", vocabulary_word_pron="Klausur-ergebnisse",
                     primary_def="Klausur is what you go for in the final study period to be examined of all the material you have learned throughout the semester. Ergibnes is the result of that Klausur.",
-                    primary_def_example="Wann sind die Klausurergebnisse fertig?")
+                    primary_def_example="Wann sind die Klausurergebnisse fertig?",
+                    syn1=u"Prüfungsergebnisse",
+                    word_family_1st="ergebnis", word_family_1st_pron="ergebnis",
+                    word_family_box1_primary_def="", word_family_box1_primary_def_example="",
+                    word_family_2nd="Klausur", word_family_2nd_pron="Klausur",
+                    word_family_box2_primary_def="", word_family_box2_primary_def_example="")
 session.add(Klausurergebnisse)
 session.commit()
 

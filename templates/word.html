@@ -35,9 +35,10 @@
 
   <style>
     /* only for this page */
-  .syn_acr {
+  .syn_ant {
     display: flex;
     justify-content: space-between;
+    width: 75%;
   }
   .container-vocab {
     position: relative;
@@ -45,7 +46,7 @@
   }
   .audio::after{
     content: '🔊';
-    font-size: 30px;
+    font-size: 25px;
     position: relative;
     top: 4px;
     left: 5px;
@@ -54,10 +55,7 @@
   .audio:hover:after {
     cursor: pointer;
   }
-  .family_words{
-    display: flex;
-    justify-content: space-between;
-  }
+
   /*end of specific css */
 
   .fixed-top, #mainNav {
@@ -70,9 +68,13 @@
   body > header > div.container > div {
     height: 115px;
   }
-  .vocab-section {
+  .vocab-section-wrapper {
     border: 3px solid #2e7fe5;
     border-radius: 25px;
+    padding: 0;
+  }
+  .vocab-section {
+    padding: 10px 25px 25px 25px;
   }
   .navbar-brand {
     height: auto;
@@ -89,27 +91,28 @@
     background-color: #ADD8E6;
     margin: 0 auto;
   }
-  .main_word {
+  .main_word, #inthefamily {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: #2e7fe5;
     display: inline-block;
-    font-size: xx-large;
+    font-size: x-large;
   }
   .Pronunciation {
     margin: auto 10px;
     color: #707070;
     font-family: Arial;
+    font-size: smaller;
   }
   .translated_word {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: #00b0ff;
-    font-size: xx-large;
+    font-size: x-large;
   }
   .primary-definition-div {
-    margin: 30px 0;
+    margin: 10px 0 0 0;
   }
   .primary_def {
     font-family: Montserrat;
@@ -129,6 +132,99 @@
     color: #707070;
     font-weight: bold;
     font-size: larger;
+  }
+  .syn_ant button {
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: 2px solid #348eff;
+    background-color: rgba(0,0,0,0);
+  }
+  .syn_ant_sign {
+    position: relative;
+    width: 30px;
+    height: 15px;
+    border-radius: 10px;
+    font-size: smaller;
+    text-align: center;
+    color: white;
+    background-color: #00b0ff;
+    bottom: -9px;
+    float: right;
+    right: 25px;
+  }
+  .syn_ant_sign p {
+    position: relative;
+    top: -2px;
+  }
+  .break-point-word-family {
+    width: 60%;
+    height: 3px;
+    border-radius: 50px;
+    background-color: #eeeeee;
+    margin: 20px 0;
+  }
+  .family_words {
+    width: 82%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .word-family-box {
+    padding: 20px;
+    margin: 10px 0;
+    width: 240px;
+    height: 178px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
+    background-color: #2e7fe5;
+  }
+  .word-family-box-main_word {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    font-size: large;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .word-family-box-pronunciation {
+    font-family: Arial;
+    color: #d2d8dc;
+    font-size: smaller;
+  }
+  .word-family-box-audio::after{
+    content: '🔊';
+  font-size: 20px;
+  position: relative;
+  left: 10px;
+  color: #00b0ff;
+  }
+  .word-family-box-audio:hover:after {
+    cursor: pointer;
+  }
+  .word-family-box-primary_def {
+    font-weight:bold;
+    color: #f5f5f5;
+  }
+  .word-family-box-primary_def_example {
+    color: #d2d8dc;
+  }
+  .vocab-section-footer {
+    text-align: center;
+    background-color: #2e7fe5;
+    width: 100%;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  .vocab-section-footer:hover {
+    cursor: pointer;
+  }
+  .vocab-section-footer h1{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    font-size: x-large;
   }
   </style>
 </head>
@@ -177,48 +273,97 @@
   <div class="container container-vocab">
     <div class="row">
 
-      <section class="vocab-section col-sm-7">
+      <section class="vocab-section-wrapper col-sm-7">
 
-        <div>
-          <div style="display: flex;">
-            <h1 class="main_word">{{word.vocabulary_word}}</h1>
-            <div class="Pronunciation"><span>(Pronunciation: "{{word.vocabulary_word_pron}}")</span><a data-audio="#" class="audio"></a></div>
+        <div class="vocab-section">
+
+          <div>
+            <div style="display: flex;">
+              <h1 class="main_word">{{word.vocabulary_word}}</h1>
+              <div class="Pronunciation"><span>(Pronunciation: "{{word.vocabulary_word_pron}}")</span><a data-audio="#" class="audio"></a></div>
+            </div>
+            <h1 class="translated_word">= {{word.translated_word}}</h1>
           </div>
-          <h1 class="translated_word">= {{word.translated_word}}</h1>
+
+          <div class="break-point-word-family"></div>
+
+          <div class="primary-definition-div">
+            <p class="primary_def"><span style="font-weight:bold;">Primary def ({{word.wordtype}}):</span> {{word.primary_def}}</p>
+            <p class="see-more-p">(Click "See more" below for other definitions)</p>
+            <p class="primary_def_example">E.g. {{word.primary_def_example}}</p>
+          </div>
+
+          {% if (word.syn1) or (word.ant1) %}
+          <div class="syn_ant">
+            <a href="{{word.syn1}}"><div class="syn_ant_sign"><p>Syn</p></div><button>{{word.syn1}}</button></a>
+
+            {% if word.syn2 %}
+            <a href="{{word.syn2}}"><div class="syn_ant_sign"><p>Syn</p></div><button>{{word.syn2}}</button></a>
+            {% endif %}
+
+            {% if word.ant1 %}
+            <a href="{{word.ant1}}"><div class="syn_ant_sign"><p>Ant</p></div><button>{{word.ant1}}</button></a>
+            {% endif %}
+
+            {% if word.ant2 %}
+            <a href="{{word.ant2}}"><div class="syn_ant_sign"><p>Ant</p></div><button>{{word.ant2}}</button></a>
+            {% endif %}
+
+          </div>
+          {% endif %}
+
+          {% if word.word_family_1st %}
+          <h3 id="inthefamily">In The Family</h3>
+
+          <div class="break-point-word-family"></div>
+
+          <div class="family_words">
+            <div class="word-family-box">
+              <h1 class="word-family-box-main_word">{{word.word_family_1st}}</h1><a data-audio="#" class="word-family-box-audio"></a>
+              <p class="word-family-box-pronunciation">(Pronunciation: "{{word.word_family_1st_pron}}")</p>
+              <p class="word-family-box-primary_def">Def: {{word.word_family_box1_primary_def}}</p>
+              <p class="word-family-box-primary_def_example">E.g. {{word.word_family_box1_primary_def_example}}</p>
+            </div>
+
+            {% if word.word_family_2nd %}
+            <div class="word-family-box">
+              <h1 class="word-family-box-main_word">{{word.word_family_2nd}}</h1><a data-audio="#" class="word-family-box-audio"></a>
+              <p class="word-family-box-pronunciation">(Pronunciation: "{{word.word_family_2nd_pron}}")</p>
+              <p class="word-family-box-primary_def">Def: {{word.word_family_box2_primary_def}}</p>
+              <p class="word-family-box-primary_def_example">E.g. {{word.word_family_box2_primary_def_example}}</p>
+            </div>
+            {% endif %}
+
+            {% if word.word_family_3rd %}
+            <div class="word-family-box">
+              <h1 class="word-family-box-main_word">{{word.word_family_3rd}}</h1><a data-audio="#" class="word-family-box-audio"></a>
+              <p class="word-family-box-pronunciation">(Pronunciation: "{{word.word_family_3rd_pron}}")</p>
+              <p class="word-family-box-primary_def">Def: {{word.word_family_box3_primary_def}}</p>
+              <p class="word-family-box-primary_def_example">E.g. {{word.word_family_box3_primary_def_example}}</p>
+            </div>
+            {% endif %}
+
+            {% if word.word_family_4th %}
+            <div class="word-family-box">
+              <h1 class="word-family-box-main_word">{{word.word_family_4th}}</h1><a data-audio="#" class="word-family-box-audio"></a>
+              <p class="word-family-box-pronunciation">(Pronunciation: "{{word.word_family_4th_pron}}")</p>
+              <p class="word-family-box-primary_def">Def: {{word.word_family_box4_primary_def}}</p>
+              <p class="word-family-box-primary_def_example">E.g. {{word.word_family_box4_primary_def_example}}</p>
+            </div>
+            {% endif %}
+
+          </div>
+          {% endif %}
+
         </div>
 
-        <div class="primary-definition-div">
-          <p class="primary_def"><span style="font-weight:bold;">Primary def ({{word.wordtype}}):</span> {{word.primary_def}}</p>
-          <p class="see-more-p">(Click "See more" below for other definitions)</p>
-          <p class="primary_def_example">E.g. {{word.primary_def_example}}</p>
+        <div class="vocab-section-footer">
+          <h1>See More</h1>
         </div>
 
-        {% if word.word_family_1st %}
-        <div class="syn_acr">
-          <button>{{word.word_family_1st}}</button>
-          <button>{{word.word_family_2nd}}</button>
-          <button>{{word.word_family_3rd}}</button>
-          <button>{{word.word_family_4th}}</button>
-          <button>{{word.word_family_5th}}</button>
-        </div>
-        {% endif %}
+      </section>
 
-        <script>
-          check_word_syn_acr = function() {
-            if word.
-          }
-        </script>
-
-        <h3 id="inthefamily">In The Family</h3>
-
-        <div class="family_words">
-          <button></button>
-          <button></button>
-          <button></button>
-          <button></button>
-          <button></button>
-          <button></button>
-        </div>
+      <section class="add-quiz-section col-sm-5">
 
       </section>
 

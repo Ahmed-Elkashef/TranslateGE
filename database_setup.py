@@ -17,11 +17,26 @@ class Word(Base):
     primary_def = Column(String(250), nullable=False)
     primary_def_example = Column(String(250), nullable=False)
     wordtype = Column(String(250), nullable=False)
+    syn1= Column(String(250))
+    syn2= Column(String(250))
+    ant1= Column(String(250))
+    ant2= Column(String(250))
     word_family_1st = Column(String(250))
+    word_family_1st_pron = Column(String(250))
     word_family_2nd = Column(String(250))
+    word_family_2nd_pron = Column(String(250))
     word_family_3rd = Column(String(250))
+    word_family_3rd_pron = Column(String(250))
     word_family_4th = Column(String(250))
-    word_family_5th = Column(String(250))
+    word_family_4th_pron = Column(String(250))
+    word_family_box1_primary_def = Column(String(250))
+    word_family_box1_primary_def_example = Column(String(250))
+    word_family_box2_primary_def = Column(String(250))
+    word_family_box2_primary_def_example = Column(String(250))
+    word_family_box3_primary_def = Column(String(250))
+    word_family_box3_primary_def_example = Column(String(250))
+    word_family_box4_primary_def = Column(String(250))
+    word_family_box4_primary_def_example = Column(String(250))
     voice_clip = Column(String(250))
 
     @property
@@ -39,6 +54,4 @@ class Word(Base):
 
 
 engine = create_engine('sqlite:///words.db')
-
-
 Base.metadata.create_all(engine)
