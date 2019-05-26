@@ -38,7 +38,18 @@
   .syn_ant {
     display: flex;
     justify-content: space-between;
-    width: 75%;
+    width: 72%;
+    margin: 20px 0 10px 0;
+  }
+  .other-meaning {
+    margin-top: 20px;
+  }
+  .other-meaning-syn_ant {
+    display: flex;
+    justify-content: space-between;
+  }
+  .other-meaning-syn_ant a {
+    font-size: smaller;
   }
   .container-vocab {
     position: relative;
@@ -69,6 +80,9 @@
     height: 115px;
   }
   .vocab-section-wrapper {
+    transition-duration: 1s;
+    overflow: hidden;
+    height: 725px;
     border: 3px solid #2e7fe5;
     border-radius: 25px;
     padding: 0;
@@ -91,7 +105,10 @@
     background-color: #ADD8E6;
     margin: 0 auto;
   }
-  .main_word, #inthefamily {
+  #inthefamily, #canAlsoMean {
+    margin-bottom: 0;
+  }
+  .main_word, #inthefamily, #canAlsoMean {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: #2e7fe5;
@@ -122,20 +139,22 @@
     word-spacing: 2px;
   }
   .see-more-p {
+    transition-duration: 0.6s;
     font-family: Montserrat;
     color: #348eff;
     font-weight: bold;
     font-size: larger;
   }
   .primary_def_example {
+    transition-duration: 0.6s;
     font-family: Montserrat;
     color: #707070;
     font-weight: bold;
     font-size: larger;
   }
-  .syn_ant button {
+  .syn_ant button, .other-meaning-syn_ant button {
     border-radius: 20px;
-    padding: 5px 10px;
+    padding: 3px 5px;
     border: 2px solid #348eff;
     background-color: rgba(0,0,0,0);
   }
@@ -148,9 +167,25 @@
     text-align: center;
     color: white;
     background-color: #00b0ff;
-    bottom: -9px;
+    bottom: 7px;
     float: right;
     right: 25px;
+  }
+  .other-meaning-syn_ant_sign {
+    position: relative;
+    width: 25px;
+    height: 14px;
+    border-radius: 10px;
+    font-size: smaller;
+    text-align: center;
+    color: white;
+    background-color: #00b0ff;
+    bottom: -9px;
+    float: right;
+  }
+  .other-meaning-syn_ant button span {
+    text-shadow: 0px 0px 25px black;
+    color: deepskyblue;
   }
   .syn_ant_sign p {
     position: relative;
@@ -161,7 +196,7 @@
     height: 3px;
     border-radius: 50px;
     background-color: #eeeeee;
-    margin: 20px 0;
+    margin: 15px 0;
   }
   .family_words {
     width: 82%;
@@ -173,7 +208,7 @@
     padding: 20px;
     margin: 10px 0;
     width: 240px;
-    height: 178px;
+    height: 225px;
     border-radius: 10px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
     background-color: #2e7fe5;
@@ -186,6 +221,14 @@
     font-size: large;
     margin-top: 0;
     margin-bottom: 0;
+  }
+  .other-meaning-box-main_word {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    font-size: large;
+    margin-top: 0;
   }
   .word-family-box-pronunciation {
     font-family: Arial;
@@ -202,14 +245,33 @@
   .word-family-box-audio:hover:after {
     cursor: pointer;
   }
-  .word-family-box-primary_def {
+  .word-family-box-primary_def, .other-meaning-box-primary_def {
+    font-family: 'Montserrat', sans-serif;
+    font-size: small;
     font-weight:bold;
     color: #f5f5f5;
   }
-  .word-family-box-primary_def_example {
+  .word-family-box-primary_def_example, .other-meaning-box-primary_def_example {
+    font-family: 'Montserrat', sans-serif;
+    font-weight:bold;
+    font-size: small;
     color: #d2d8dc;
   }
+  .other-meaning-box {
+    padding: 20px;
+    margin: 10px 0;
+    width: 210px;
+    height: 220px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
+    background-color: #2e7fe5;
+  }
+
+
   .vocab-section-footer {
+    position: absolute;
+    bottom: 0px;
+    transition-duration: 0.6s;
     text-align: center;
     background-color: #2e7fe5;
     width: 100%;
@@ -226,6 +288,21 @@
     display: inline-block;
     font-size: x-large;
   }
+  .live-examples-title, .related-words-title {
+    border-radius: 5px;
+    width: fit-content;
+    margin: 100px 0;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16);
+    background-color: #00b0ff;
+  }
+  .live-examples-title h3, .related-words-title h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: large;
+    color: white;
+    padding: 8px;
+  }
+
   </style>
 </head>
 
@@ -355,6 +432,112 @@
           </div>
           {% endif %}
 
+
+          {% if word.other_meaning1 %}
+          <h3 id="canAlsoMean">This Word can also Mean</h3>
+
+          <div class="break-point-word-family"></div>
+
+          <div class="other-meaning">
+
+            <div class="other-meaning-box">
+              <h1 class="other-meaning-box-main_word">Def ({{word.wordtype}}):</h1>
+              <p class="other-meaning-box-primary_def">{{word.other_meaning1}}, {{word.other_meaning1_def}}</p>
+              <p class="other-meaning-box-primary_def_example">E.g. {{word.other_meaning1_def_example}}</p>
+
+              {% if (word.other_meaning1_syn1) or (word.other_meaning1_ant1) %}
+              <div class="other-meaning-syn_ant">
+                <a href="{{word.other_meaning1_syn1}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning1_syn1}}</span></button></a>
+                {% if word.other_meaning1_syn2 %}
+                <a href="{{word.other_meaning1_syn2}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning1_syn2}}</span></button></a>
+                {% endif %}
+                {% if word.other_meaning1_ant1 %}
+                <a href="{{word.other_meaning1_ant1}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning1_ant1}}</span></button></a>
+                {% endif %}
+                {% if word.other_meaning1_ant2 %}
+                <a href="{{word.other_meaning1_ant2}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning1_ant2}}</span></button></a>
+                {% endif %}
+              </div>
+              {% endif %}
+
+            </div>
+
+            {% if word.other_meaning2 %}
+            <div class="other-meaning-box">
+              <h1 class="other-meaning-box-main_word">Def ({{word.wordtype}}):</h1>
+              <p class="other-meaning-box-primary_def">{{word.other_meaning2}}, {{word.other_meaning2_def}}</p>
+              <p class="other-meaning-box-primary_def_example">E.g. {{word.other_meaning2_def_example}}</p>
+
+              {% if (word.other_meaning2_syn1) or (word.other_meaning2_ant1) %}
+              <div class="other-meaning-syn_ant">
+                <a href="{{word.other_meaning2_syn1}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning2_syn1}}</span></button></a>
+                {% if word.other_meaning2_syn2 %}
+                <a href="{{word.other_meaning2_syn2}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning2_syn2}}</span></button></a>
+                {% endif %}
+                {% if word.other_meaning2_ant1 %}
+                <a href="{{word.other_meaning2_ant1}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning2_ant1}}</span></button></a>
+                {% endif %}
+                {% if word.other_meaning2_ant2 %}
+                <a href="{{word.other_meaning2_ant2}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning2_ant2}}</span></button></a>
+                {% endif %}
+              </div>
+              {% endif %}
+
+            </div>
+            {% endif %}
+
+            {% if word.other_meaning3 %}
+            <div class="other-meaning-box">
+              <h1 class="other-meaning-box-main_word">Def ({{word.wordtype}}):</h1>
+              <p class="other-meaning-box-primary_def">{{word.other_meaning3}}, {{word.other_meaning3_def}}</p>
+              <p class="other-meaning-box-primary_def_example">E.g. {{word.other_meaning3_def_example}}</p>
+
+              {% if (word.other_meaning3_syn1) or (word.other_meaning3_ant1) %}
+              <div class="other-meaning-syn_ant">
+                <a href="{{word.other_meaning3_syn1}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning3_syn1}}</span></button></a>
+                {% if word.other_meaning3_syn2 %}
+                <a href="{{word.other_meaning3_syn2}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning3_syn2}}</span></button></a>
+                {% endif %}
+                {% if word.other_meaning3_ant1 %}
+                <a href="{{word.other_meaning3_ant1}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning3_ant1}}</span></button></a>
+                {% endif %}
+                {% if word.other_meaning3_ant2 %}
+                <a href="{{word.other_meaning3_ant2}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning3_ant2}}</span></button></a>
+                {% endif %}
+              </div>
+              {% endif %}
+
+            </div>
+            {% endif %}
+
+            {% if word.other_meaning4 %}
+            <div class="other-meaning-box">
+              <h1 class="other-meaning-box-main_word">Def ({{word.wordtype}}):</h1>
+              <p class="other-meaning-box-primary_def">{{word.other_meaning4}}, {{word.other_meaning4_def}}</p>
+              <p class="other-meaning-box-primary_def_example">E.g. {{word.other_meaning4_def_example}}</p>
+
+              {% if (word.other_meaning4_syn1) or (word.other_meaning4_ant1) %}
+              <div class="other-meaning-syn_ant">
+                <a href="{{word.other_meaning4_syn1}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning4_syn1}}</span></button></a>
+                {% if word.other_meaning4_syn2 %}
+                <a href="{{word.other_meaning4_syn2}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning4_syn2}}</span></button></a>
+                {% endif %}
+                {% if word.other_meaning4_ant1 %}
+                <a href="{{word.other_meaning4_ant1}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning4_ant1}}</span></button></a>
+                {% endif %}
+                {% if word.other_meaning4_ant2 %}
+                <a href="{{word.other_meaning4_ant2}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning4_ant2}}</span></button></a>
+                {% endif %}
+              </div>
+              {% endif %}
+
+            </div>
+            {% endif %}
+
+          </div>
+          <!-- end of other meanings section -->
+          {% endif %}
+
         </div>
 
         <div class="vocab-section-footer">
@@ -368,8 +551,41 @@
       </section>
 
     </div>
+
+    <div class="live-examples">
+      <div class="live-examples-title">
+        <h3>Live Examples</h3>
+      </div>
+      <div class="live-examples-content"></div>
+    </div>
+
+    <div class="related-words">
+      <div class="related-words-title">
+        <h3>Related Words</h3>
+      </div>
+      <div class="related-words-content"></div>
+    </div>
+
   </div>
 
+  <script>
+    $(".vocab-section-footer").click(function() {
+      $(".vocab-section-wrapper").css("height","1190px");
+      $(this).css("opacity","0");
+      $(".see-more-p").css("opacity","0");
+      $(".primary_def_example").css("margin-top","-40px");
+    });
+
+    $(".see-more-p").click(function() {
+      $(".vocab-section-footer").focus();
+    });
+
+    var app_key = "1242d51e-4cfc-462f-bc8c-dc78fb498ea8";
+    var text = "{{word.vocabulary_word}}";
+    $.ajax({url: "https://api.wordassociations.net/associations/v1.0/json/search?apikey="+app_key+"&text="+text+"&lang=de&limit=5&type=response&indent=yes", success: function(result){
+      console.log(result);
+    }});
+  </script>
 </body>
 
 </html>

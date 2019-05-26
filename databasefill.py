@@ -21,27 +21,33 @@ Kaufen = Word(
                 primary_def_example="Ich werde heute ein neues Auto kaufen.",
                 syn1="einkaufen",syn2="ankaufen",ant1="verkaufen",ant2="boykottieren",
                 word_family_1st="abkaufen", word_family_1st_pron="ab-kaufen",
-                word_family_box1_primary_def="", word_family_box1_primary_def_example="",
+                word_family_box1_primary_def="To buy something from someone. The addition of 'ab' here gives the meaning 'from'", word_family_box1_primary_def_example="Ich kann dir keinen Whiskey abkaufen.",
                 word_family_2nd="aufkaufen", word_family_2nd_pron="auf-kaufen",
-                word_family_box2_primary_def="", word_family_box2_primary_def_example="",
+                word_family_box2_primary_def="To buy up, take over ownership of corporations and shares of a company or a piece of land.", word_family_box2_primary_def_example="Er kaufte alle Aktien der Firma auf.",
                 word_family_3rd="einkaufen", word_family_3rd_pron="ein-kaufen",
-                word_family_box3_primary_def="", word_family_box3_primary_def_example="",
+                word_family_box3_primary_def="To buy something in the context of shopping / doing the groceries, purchasing for the daily needs.", word_family_box3_primary_def_example="Wir gehen einmal pro Woche einkaufen.",
                 word_family_4th=u"Zurückkaufen", word_family_4th_pron=u"Zurück-kaufen",
-                word_family_box4_primary_def="", word_family_box4_primary_def_example="")
+                word_family_box4_primary_def="To buy back what has been sold / lost / given away.", word_family_box4_primary_def_example=u"ich will den Schmuck zurückkaufen, den ich dir verkaufte.",
+                other_meaning1="to bribe", other_meaning1_def="to pay money illegally in order to get something that isn't yours.", other_meaning1_def_example="der Sieg war gekauft.",
+                other_meaning1_syn1="bestechen", other_meaning1_ant1=u"entschädigen")
 session.add(Kaufen)
 session.commit()
 
 Klausurergebnisse = Word(
-                    vocabulary_word='Klausurergebnisse',
+                    vocabulary_word='Klausurergebnis',
                     translated_word='Exam Results',
-                    wordtype="v", vocabulary_word_pron="Klausur-ergebnisse",
-                    primary_def="Klausur is what you go for in the final study period to be examined of all the material you have learned throughout the semester. Ergibnes is the result of that Klausur.",
+                    wordtype="v", vocabulary_word_pron="Klausur-ergebnis",
+                    primary_def="Klausor: a test or an exam, Ergebnis: Result. Klausur is what you go for in the final study period to be examined of all the material you have learned throughout the semester. Ergibnes is the result of that Klausur.",
                     primary_def_example="Wann sind die Klausurergebnisse fertig?",
                     syn1=u"Prüfungsergebnisse",
                     word_family_1st="ergebnis", word_family_1st_pron="ergebnis",
                     word_family_box1_primary_def="", word_family_box1_primary_def_example="",
                     word_family_2nd="Klausur", word_family_2nd_pron="Klausur",
-                    word_family_box2_primary_def="", word_family_box2_primary_def_example="")
+                    word_family_box2_primary_def="", word_family_box2_primary_def_example="",
+                    other_meaning1="", other_meaning1_def="", other_meaning1_def_example="",
+                    other_meaning2="", other_meaning2_def="", other_meaning2_def_example="",
+                    other_meaning3="", other_meaning3_def="", other_meaning3_def_example="",
+                    other_meaning4="", other_meaning4_def="", other_meaning4_def_example="",)
 session.add(Klausurergebnisse)
 session.commit()
 
