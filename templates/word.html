@@ -291,7 +291,7 @@
   .live-examples-title, .related-words-title {
     border-radius: 5px;
     width: fit-content;
-    margin: 100px 0;
+    margin: 100px 0 0 0;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16);
     background-color: #00b0ff;
   }
@@ -302,7 +302,34 @@
     color: white;
     padding: 8px;
   }
-
+  .related-words-content {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 20px 0 10px 0;
+  }
+  .related-words-content button {
+    border-radius: 20px;
+    padding: 3px 5px;
+    border: 2px solid #348eff;
+    background-color: rgba(0,0,0,0);
+    min-width: 100px;
+    height: 35px;
+  }
+  .related-word-sign {
+    position: relative;
+    width: fit-content;
+    padding: 0 4px;
+    height: 15px;
+    border-radius: 5px;
+    font-size: x-small;
+    text-align: center;
+    color: white;
+    background-color: #348eff;
+    top: 7px;
+    float: right;
+    right: 40px;
+  }
   </style>
 </head>
 
@@ -563,7 +590,9 @@
       <div class="related-words-title">
         <h3>Related Words</h3>
       </div>
-      <div class="related-words-content"></div>
+      <div class="related-words-content">
+        <!-- additional content is added here with AJAX -->
+      </div>
     </div>
 
   </div>
@@ -583,7 +612,21 @@
     var app_key = "1242d51e-4cfc-462f-bc8c-dc78fb498ea8";
     var text = "{{word.vocabulary_word}}";
     $.ajax({url: "https://api.wordassociations.net/associations/v1.0/json/search?apikey="+app_key+"&text="+text+"&lang=de&limit=5&type=response&indent=yes", success: function(result){
-      console.log(result);
+      if(result.response["0"].items[0]) {
+        $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>"+result.response["0"].items[0].item+"</button></div>");
+      }
+      if (result.response["0"].items[1]) {
+        $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>"+result.response["0"].items[1].item+"</button></div>");
+      }
+      if (result.response["0"].items[2]) {
+        $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>"+result.response["0"].items[2].item+"</button></div>");
+      }
+      if (result.response["0"].items[3]) {
+        $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>"+result.response["0"].items[3].item+"</button></div>");
+      }
+      if (result.response["0"].items[4]) {
+        $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>"+result.response["0"].items[4].item+"</button></div>");
+      }
     }});
   </script>
 </body>
