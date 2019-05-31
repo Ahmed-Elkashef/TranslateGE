@@ -290,7 +290,7 @@
   .live-examples-title, .related-words-title {
     border-radius: 5px;
     width: fit-content;
-    margin: 100px 0 0 0;
+    margin: 50px 0 0 0;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16);
     background-color: #00b0ff;
   }
@@ -449,6 +449,51 @@
     background-color: #00B0FF;
     color: white;
     text-decoration: none;
+  }
+  .live-examples-box {
+    width: 340px;
+    height: 190px;
+    border-radius: 25px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
+    background-color: #2e7fe5;
+    margin: 0 10px;
+  }
+  .live-examples-box {
+    padding: 15px;
+  }
+  .live-examples-box-twitter-logo {
+    text-align: right;
+  }
+  .live-examples-box-user {
+    display: flex;
+  }
+  .live-examples-box-user p {
+    margin: auto 0 auto 10px;
+    color: white;
+    font-weight: bold;
+  }
+  .live-examples-box-twitter-user-time {
+    margin: 0 10px;
+    width: 87%;
+    display: flex;
+    justify-content: space-between;
+    color: #00b0ff;
+    font-weight: bold;
+  }
+  .live-examples-box-time p {
+    margin: 5px;
+  }
+  .live-examples-box-tweet {
+    line-height: 1.29;
+    color: #f5f5f5;
+    margin: 20px 10px;
+    line-height: 1.5;
+  }
+  .live-examples-content-wrapper {
+    width: 70%;
+    overflow: hidden;
+    display: flex;
+    margin: 30px 0;
   }
   </style>
 </head>
@@ -719,7 +764,48 @@
       <div class="live-examples-title">
         <h3>Live Examples</h3>
       </div>
-      <div class="live-examples-content"></div>
+      <div class="live-examples-content-wrapper">
+
+        <div class="live-examples-box">
+          <div class="live-examples-box-twitter-logo"><img src="/static/img/twitter.svg"></div>
+          <div class="live-examples-box-twitter-user-time">
+            <div class="live-examples-box-user">
+              <img src="/static/img/twitter-user.png"><p>Ahmed Elkashef</p>
+            </div>
+            <div class="live-examples-box-time">
+              <p>1 Feb 2019</p>
+            </div>
+          </div>
+          <p class="live-examples-box-tweet">Timmy Thiele macht Thiele-Dinge. Könnten auch Hofmann-Dinge sein. Diesbezüglich haben wir Erfahrung. #Betze</p>
+        </div>
+
+        <div class="live-examples-box">
+          <div class="live-examples-box-twitter-logo"><img src="/static/img/twitter.svg"></div>
+          <div class="live-examples-box-twitter-user-time">
+            <div class="live-examples-box-user">
+              <img src="/static/img/twitter-user.png"><p>Ahmed Elkashef</p>
+            </div>
+            <div class="live-examples-box-time">
+              <p>1 Feb 2019</p>
+            </div>
+          </div>
+          <p class="live-examples-box-tweet">Timmy Thiele macht Thiele-Dinge. Könnten auch Hofmann-Dinge sein. Diesbezüglich haben wir Erfahrung. #Betze</p>
+        </div>
+
+        <!--<div class="live-examples-box">
+          <div class="live-examples-box-twitter-logo"><img src="/static/img/twitter.svg"></div>
+          <div class="live-examples-box-twitter-user-time">
+            <div class="live-examples-box-user">
+              <img src="/static/img/twitter-user.png"><p>Ahmed Elkashef</p>
+            </div>
+            <div class="live-examples-box-time">
+              <p>1 Feb 2019</p>
+            </div>
+          </div>
+          <p class="live-examples-box-tweet">Timmy Thiele macht Thiele-Dinge. Könnten auch Hofmann-Dinge sein. Diesbezüglich haben wir Erfahrung. #Betze</p>
+        </div>-->
+
+      </div>
     </div>
 
     <div class="related-words">
