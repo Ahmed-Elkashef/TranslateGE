@@ -53,12 +53,8 @@
   }
   .container-vocab {
     position: relative;
-    top: 130px;
+    top: 180px;
   }
-  /*.container-vocab .row {
-    margin-left: 20px;
-    margin-right: 20px;
-  }*/
   .audio::after{
     content: '🔊';
     font-size: 25px;
@@ -280,7 +276,7 @@
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
   }
-  .vocab-section-footer:hover, .ad-area-footer:hover {
+  .vocab-section-footer:hover, .ad-area-sidebar:hover {
     cursor: pointer;
   }
   .vocab-section-footer h1 {
@@ -333,10 +329,14 @@
     float: right;
     right: 40px;
   }
+  .related-word-sign:hover {
+    cursor: pointer;
+  }
   body > div > div.row > section.col-sm-3 {
     height: 550px;
   }
   .ad-quiz-wrapper {
+    width: 90%;
     transition-duration: 1s;
     overflow: hidden;
     height: 550px;
@@ -344,7 +344,7 @@
     padding: 0;
     background-color: white;
   }
-  .ad-area-footer {
+  .ad-area-sidebar {
     position: relative;
     bottom: -505px;
     transition-duration: 0.6s;
@@ -354,7 +354,7 @@
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
   }
-  .ad-area-footer p {
+  .ad-area-sidebar p {
     font-size: Arial;
     color: #fafbff;
     font-size: x-small;
@@ -364,8 +364,7 @@
   }
   .quiz-area {
     background-color: #2e7fe5;
-    width: 100%;
-    height: 360px;
+    width: 90%;
     border-radius: 25px;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16);
     margin-top: 70px;
@@ -384,10 +383,41 @@
     font-family: Montserrat;
     color: #f5f5f5;
     list-style-type: none;
+    padding: 0 30px 20px;
+  }
+  .quiz-answer-options li{
+    display: flex;
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  .quiz-answer-options li div{
+    margin-right: 10px;
   }
   .quiz-answer-dot {
-    border: solid 3px #00b0ff;
+    border: solid 2px #00b0ff;
     border-radius: 8px;
+    width: 18px;
+    height: 17px;
+  }
+  .ad-area-footer {
+    height: 80px;
+    width: 90%;
+    background-color: white;
+    margin: 50px auto;
+  }
+  .container-footer {
+    position: relative;
+    top: 180px;
+    background-color: #2e7fe5;
+    color: white;
+  }
+  .container-footer p a {
+    text-decoration: none;
+    color: white;
+  }
+  .container-footer p a:hover {
+    text-decoration: none;
+    color: lightblue;
   }
   </style>
 </head>
@@ -637,16 +667,16 @@
       <section class="col-sm-3">
         <div class="ad-quiz-wrapper">
           <div class="ad-area-section"></div>
-          <div class="ad-area-footer"><p>We display ads to keep supporting the platform.</p></div>
+          <div class="ad-area-sidebar"><p>We display ads to keep supporting the platform.</p></div>
         </div>
 
         <div class="quiz-area">
           <h1 class="quiz-area-question">Choose the most synonymous word to "Erfahrung":</h1>
           <ul class="quiz-answer-options">
-            <div class="quiz-answer-dot"></div><li>Persönlich</li>
-            <div class="quiz-answer-dot"></div><li>Leidvoll</li>
-            <div class="quiz-answer-dot"></div><li>Bitter</li>
-            <div class="quiz-answer-dot"></div><li>Traumatisch</li>
+            <li><div class="quiz-answer-dot"></div>Persönlich</li>
+            <li><div class="quiz-answer-dot"></div>Leidvoll</li>
+            <li><div class="quiz-answer-dot"></div>Bitter</li>
+            <li><div class="quiz-answer-dot"></div>Traumatisch</li>
           </ul>
         </div>
       </section>
@@ -670,7 +700,20 @@
       </div>
     </div>
 
+    <div class="ad-area-footer"></div>
+
   </div>
+
+  <!-- Footer -->
+  <footer class="container-footer">
+    <div class="container">
+      <p class="copyright">TranslateGE &copy; 2019 All Rights Reserved | <a href="/privacy-policy">Privacy Policy</a> | <a href="cookie-policy">Cookie Policy</a> | <a href="/terms-and-conditions">Terms & Conditions</a></p>
+    </div>
+  </footer>
+
+
+
+  <script type="text/javascript" src="/static/jsSHA/src/sha.js"></script>
 
   <script>
     $(".vocab-section-footer").click(function() {
@@ -703,6 +746,57 @@
         $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>"+result.response["0"].items[4].item+"</button></div>");
       }
     }});
+
+    // Twitter authentication
+    //---------------------------
+    //create nonce
+    function make_nonce(length) {
+       var result           = '';
+       var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+       var charactersLength = characters.length;
+       for ( var i = 0; i < length; i++ ) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+       }
+       return result;
+    }
+    //build base String
+    var count = "2";
+    var oauth_consumer_key = "yLvz924QIt84mffCyWWb8XkG8";
+    var oauth_nonce = make_nonce(42);
+    var oauth_timestamp = Math.floor(Date.now() / 1000);
+    var oauth_token = "332494102-mwAgddhA4xtKClqxVCgqMzYmIJIuGt370TDjdnal";
+    var result_type = "mixed";
+    var q = "from%3Atwitterdev";
+    var baseURI = "GET&https://api.twitter.com/1.1/search/tweets.json&count="+count+"&oauth_consumer_key="+oauth_consumer_key+"&oauth_nonce="+oauth_nonce+"&oauth_signature_method=HMAC-SHA1&oauth_timestamp="+oauth_timestamp+"&oauth_token="+oauth_token+"&oauth_version=1.0&q=&result_type="+result_type;
+    var encodedURL = encodeURIComponent(baseURI);
+    //----------------------------------------------
+    //build signing keys
+    var APISecretKey = "VVheGElN9ve00i2pOHhOGCVLFSBdtu6MxN79Gjdi7NS4UHsm0H";
+    var accessTokenSecret = "vKJxpEPG55XQYn850memC0NPg8nw2cZMIQ8RzrN6azmbJ";
+    var signingKey = encodeURIComponent(APISecretKey) + "&" + encodeURIComponent(accessTokenSecret);
+    //----------------------------------------------
+    //Encode with sha1 hmac
+    var shaObj = new jsSHA("SHA-1", "TEXT");
+    shaObj.setHMACKey(signingKey, "TEXT");
+    shaObj.update(encodedURL);
+    var hmac = shaObj.getHMAC("B64");
+    var oauth_signature = hmac; //the oauth_signature is ready!
+    //----------------------------------------------
+    //compose url
+    var queryURL = "https://api.twitter.com/1.1/search/tweets.json?q="+q+"&result_type="+result_type+"&count="+count;
+    //console.log('OAuth oauth_consumer_key="'+oauth_consumer_key+'", oauth_nonce="'+oauth_nonce+'", oauth_signature="'+oauth_signature+'", oauth_signature_method="HMAC-SHA1", oauth_timestamp="'+oauth_timestamp+'", oauth_version="1.0"');
+    //"&oauth_consumer_key="+oauth_consumer_key+"&oauth_nonce="+oauth_nonce+"&oauth_signature="+oauth_signature+"&oauth_signature_method=HMAC-SHA1&oauth_timestamp="+oauth_timestamp+"&oauth_token="+oauth_token+"&oauth_version=1.0"
+    //console.log(queryURL);
+    $.ajax({
+      url: queryURL,
+      type: "GET",
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', 'OAuth oauth_consumer_key="'+oauth_consumer_key+'", oauth_nonce="'+oauth_nonce+'", oauth_signature="'+oauth_signature+'", oauth_signature_method="HMAC-SHA1", oauth_timestamp="'+oauth_timestamp+'", oauth_version="1.0"');
+      },
+      success: function(result){
+      //console.log(result);
+    }});
+    //console.log("Base64 output of signature", hmac);
   </script>
 </body>
 
