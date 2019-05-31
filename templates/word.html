@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Translate Ge - Learn German Vocabulary</title>
+  <title>TranslateGe - Learn German Vocabulary</title>
 
   <!-- Bootstrap core CSS -->
   <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -419,9 +419,36 @@
     text-decoration: none;
     color: lightblue;
   }
-
   body > div > div.row > section.col-sm-3 {
     margin-left: 40px;
+  }
+  /*styling secondary search bar */
+  #mainNav > div > div > div:nth-child(2) {
+    padding-left: 0;
+  }
+  .search-wrapper-letter-icons {
+    padding: 8px 10px;
+  }
+  .btn-link {
+    position: relative;
+    top: 3px;
+    right: 30px;
+    width: 85px;
+    height: 25px;
+    padding: 3px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 40px;
+    background-color: #348eff;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 8px;
+  }
+  .btn-link:hover {
+    background-color: #00B0FF;
+    color: white;
+    text-decoration: none;
   }
   </style>
 </head>
@@ -718,6 +745,116 @@
 
 
   <script type="text/javascript" src="/static/jsSHA/src/sha.js"></script>
+
+  <!-- Featuring and unfeaturing Suggestions -->
+  <script>
+    const capitalize = (s) => {
+      if (typeof s !== 'string') return ''
+      return s.charAt(0).toUpperCase() + s.slice(1)
+    }
+
+    function featureSuggestions(searchInput) {
+      var search_url = "/worterbuch/autocomplete=" + searchInput;
+      $(".new-suggestion").remove();
+      $(".suggestions-box").removeClass("suggestions-box-inactive");
+      $(".suggestions-box").addClass("suggestions-box-active");
+      $(".trending-words-wrapper").css("opacity", "0");
+      $(".trending-words-wrapper").css("position", "relative");
+      $(".trending-words-wrapper").css("top", "100px");
+
+      $.ajax({
+        url: search_url,
+        success: function(result) {
+          for (var i = 0; i < result.suggestions.length; i++) {
+            var suggested_word = result.suggestions[i].vocabulary_word;
+            var the_rest_of_word = capitalize(suggested_word).split(capitalize(searchInput))[1];
+            $("<div class='new-suggestion'><div class='auto-complete'><p class='suggestion-word'>" + searchInput + "<span class='rest_of_word'>" + the_rest_of_word + "</span></p><p class='suggestion-description'>" + result.suggestions[i].primary_def
+              .substring(0, 30) + "..  </p></div><a href='/worterbuch/" + suggested_word + "'><button class='btn btn-link'>View</button></a></div></a></div>").insertAfter("#first_insert");
+          }
+        }
+      });
+    }
+
+    function unfeatureSuggestions() {
+      $(".new-suggestion").remove();
+      $(".site-heading").css("display", "");
+      $(".suggestions-box").removeClass("suggestions-box-active");
+      $(".suggestions-box").addClass("suggestions-box-inactive");
+      $(".trending-words-wrapper").css("opacity", "1");
+      $(".trending-words-wrapper").css("position", "initial");
+      $(".trending-words-wrapper").css("top", "unset");
+    }
+
+    /* controling suggestions with key pushes */
+    $(document).keydown(function(e) {
+      switch (e.which) {
+        case 37: // left
+          break;
+
+        case 38: // up
+
+          break;
+
+        case 39: // right
+          break;
+
+        case 40: // down
+        $("#searching-input").blur();
+        $(".new-suggestion").first().focus();
+        console.log("I did it");
+          break;
+
+        default:
+          return; // exit this handler for other keys
+      }
+      e.preventDefault(); // prevent the default action (scroll / move caret)
+    });
+
+
+    $("#searching-input").keyup(function() {
+      var searchInput = $('#searching-input').val();
+      if (searchInput == "") {
+        unfeatureSuggestions();
+      } else {
+        featureSuggestions(searchInput);
+      }
+    });
+
+    /* inserting german alphabet upon click*/
+    $("#buchstabeA").click(function() {
+      $("#searching-input").val(function() {
+        return this.value + 'ä';
+      });
+      $("#searching-input").focus();
+      var searchInput = $('#searching-input').val();
+      featureSuggestions(searchInput);
+    });
+    $("#buchstabeO").click(function() {
+      $("#searching-input").val(function() {
+        return this.value + 'ö';
+      });
+      $("#searching-input").focus();
+      var searchInput = $('#searching-input').val();
+      featureSuggestions(searchInput);
+    });
+    $("#buchstabeSS").click(function() {
+      $("#searching-input").val(function() {
+        return this.value + 'ß';
+      });
+      $("#searching-input").focus();
+      var searchInput = $('#searching-input').val();
+      featureSuggestions(searchInput);
+    });
+    $("#buchstabeU").click(function() {
+      $("#searching-input").val(function() {
+        return this.value + 'ü';
+      });
+      $("#searching-input").focus();
+      var searchInput = $('#searching-input').val();
+      featureSuggestions(searchInput);
+    });
+  </script>
+
 
   <script>
     $(".vocab-section-footer").click(function() {
