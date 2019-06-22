@@ -526,7 +526,7 @@
         <!-- search bar -->
         <div class="col-sm-6">
           <div class="search-input-field-wrapper">
-            <input id="searching-input" class="search-input-field" type="text" autofocus="" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Suchen hier!" autofocus>
+            <input id="searching-input" class="search-input-field" type="text" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Suchen hier!">
           </div>
           <!-- suggestions box -->
           <div class="suggestions-box suggestions-box-inactive">
@@ -980,8 +980,10 @@
           break;
 
         case 40: // down
-          $("#searching-input").blur();
+          //$("#searching-input").blur();
           $(".new-suggestion").first().focus();
+          $("#searching-input").blur();
+          console.log(document.activeElement);
           console.log("I did it");
           break;
 
@@ -1001,8 +1003,12 @@
       }
     });
 
+    //closes the suggestion box when something else is clicked
     $(document).on('click', function (e) {
-     unfeatureSuggestions();
+      if( ($(e.target).is('#suggestions-box')) | ($(e.target).is('.auto-complete')) | ($(e.target).is('.suggestion-word')) | ($(e.target).is('.suggestion-description')) ){
+      } else {
+        unfeatureSuggestions();
+      }
     });
 
     /* inserting german alphabet upon click*/
