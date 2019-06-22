@@ -980,11 +980,8 @@
           break;
 
         case 40: // down
-          //$("#searching-input").blur();
-          $(".new-suggestion").first().focus();
-          $("#searching-input").blur();
+          $(".new-suggestion")[0].focus();
           console.log(document.activeElement);
-          console.log("I did it");
           break;
 
         default:
@@ -1005,7 +1002,7 @@
 
     //closes the suggestion box when something else is clicked
     $(document).on('click', function (e) {
-      if( ($(e.target).is('#suggestions-box')) | ($(e.target).is('.auto-complete')) | ($(e.target).is('.suggestion-word')) | ($(e.target).is('.suggestion-description')) ){
+      if( ($(e.target).is('#suggestions-box')) | ($(e.target).is('.auto-complete')) | ($(e.target).is('.suggestion-word')) | ($(e.target).is('.suggestion-description')) | ($(e.target).is('#buchstabeA')) | ($(e.target).is('#buchstabeO')) | ($(e.target).is('#buchstabeSS')) | ($(e.target).is('#buchstabeU')) ){
       } else {
         unfeatureSuggestions();
       }
