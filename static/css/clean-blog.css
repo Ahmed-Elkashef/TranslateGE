@@ -731,7 +731,7 @@ body > header > div.container > div {
 .suggestions-box {
   width: 280px;
   height: 200px;
-  transition-duration: 0.5s;
+  transition-duration: 0.3s;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.16);
   border-bottom-right-radius: 25px;
   border-bottom-left-radius: 25px;

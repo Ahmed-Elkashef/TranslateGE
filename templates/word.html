@@ -33,6 +33,7 @@
 
 
 
+
   <style>
     /* only for this page */
   .syn_ant {
@@ -484,7 +485,6 @@
     margin: 5px;
   }
   .live-examples-box-tweet {
-    line-height: 1.29;
     color: #f5f5f5;
     margin: 20px 10px;
     line-height: 1.5;
@@ -564,18 +564,34 @@
 
           {% if (word.syn1) or (word.ant1) %}
           <div class="syn_ant">
-            <a href="{{word.syn1}}"><div class="syn_ant_sign"><p>Syn</p></div><button>{{word.syn1}}</button></a>
+            <a href="{{word.syn1}}">
+              <div class="syn_ant_sign">
+                <p>Syn</p>
+              </div><button>{{word.syn1}}</button>
+            </a>
 
             {% if word.syn2 %}
-            <a href="{{word.syn2}}"><div class="syn_ant_sign"><p>Syn</p></div><button>{{word.syn2}}</button></a>
+            <a href="{{word.syn2}}">
+              <div class="syn_ant_sign">
+                <p>Syn</p>
+              </div><button>{{word.syn2}}</button>
+            </a>
             {% endif %}
 
             {% if word.ant1 %}
-            <a href="{{word.ant1}}"><div class="syn_ant_sign"><p>Ant</p></div><button>{{word.ant1}}</button></a>
+            <a href="{{word.ant1}}">
+              <div class="syn_ant_sign">
+                <p>Ant</p>
+              </div><button>{{word.ant1}}</button>
+            </a>
             {% endif %}
 
             {% if word.ant2 %}
-            <a href="{{word.ant2}}"><div class="syn_ant_sign"><p>Ant</p></div><button>{{word.ant2}}</button></a>
+            <a href="{{word.ant2}}">
+              <div class="syn_ant_sign">
+                <p>Ant</p>
+              </div><button>{{word.ant2}}</button>
+            </a>
             {% endif %}
 
           </div>
@@ -639,15 +655,31 @@
 
               {% if (word.other_meaning1_syn1) or (word.other_meaning1_ant1) %}
               <div class="other-meaning-syn_ant">
-                <a href="{{word.other_meaning1_syn1}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning1_syn1}}</span></button></a>
+                <a href="{{word.other_meaning1_syn1}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Syn</p>
+                  </div><button><span>{{word.other_meaning1_syn1}}</span></button>
+                </a>
                 {% if word.other_meaning1_syn2 %}
-                <a href="{{word.other_meaning1_syn2}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning1_syn2}}</span></button></a>
+                <a href="{{word.other_meaning1_syn2}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Syn</p>
+                  </div><button><span>{{word.other_meaning1_syn2}}</span></button>
+                </a>
                 {% endif %}
                 {% if word.other_meaning1_ant1 %}
-                <a href="{{word.other_meaning1_ant1}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning1_ant1}}</span></button></a>
+                <a href="{{word.other_meaning1_ant1}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Ant</p>
+                  </div><button><span>{{word.other_meaning1_ant1}}</span></button>
+                </a>
                 {% endif %}
                 {% if word.other_meaning1_ant2 %}
-                <a href="{{word.other_meaning1_ant2}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning1_ant2}}</span></button></a>
+                <a href="{{word.other_meaning1_ant2}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Ant</p>
+                  </div><button><span>{{word.other_meaning1_ant2}}</span></button>
+                </a>
                 {% endif %}
               </div>
               {% endif %}
@@ -662,15 +694,31 @@
 
               {% if (word.other_meaning2_syn1) or (word.other_meaning2_ant1) %}
               <div class="other-meaning-syn_ant">
-                <a href="{{word.other_meaning2_syn1}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning2_syn1}}</span></button></a>
+                <a href="{{word.other_meaning2_syn1}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Syn</p>
+                  </div><button><span>{{word.other_meaning2_syn1}}</span></button>
+                </a>
                 {% if word.other_meaning2_syn2 %}
-                <a href="{{word.other_meaning2_syn2}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning2_syn2}}</span></button></a>
+                <a href="{{word.other_meaning2_syn2}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Syn</p>
+                  </div><button><span>{{word.other_meaning2_syn2}}</span></button>
+                </a>
                 {% endif %}
                 {% if word.other_meaning2_ant1 %}
-                <a href="{{word.other_meaning2_ant1}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning2_ant1}}</span></button></a>
+                <a href="{{word.other_meaning2_ant1}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Ant</p>
+                  </div><button><span>{{word.other_meaning2_ant1}}</span></button>
+                </a>
                 {% endif %}
                 {% if word.other_meaning2_ant2 %}
-                <a href="{{word.other_meaning2_ant2}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning2_ant2}}</span></button></a>
+                <a href="{{word.other_meaning2_ant2}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Ant</p>
+                  </div><button><span>{{word.other_meaning2_ant2}}</span></button>
+                </a>
                 {% endif %}
               </div>
               {% endif %}
@@ -686,15 +734,31 @@
 
               {% if (word.other_meaning3_syn1) or (word.other_meaning3_ant1) %}
               <div class="other-meaning-syn_ant">
-                <a href="{{word.other_meaning3_syn1}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning3_syn1}}</span></button></a>
+                <a href="{{word.other_meaning3_syn1}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Syn</p>
+                  </div><button><span>{{word.other_meaning3_syn1}}</span></button>
+                </a>
                 {% if word.other_meaning3_syn2 %}
-                <a href="{{word.other_meaning3_syn2}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning3_syn2}}</span></button></a>
+                <a href="{{word.other_meaning3_syn2}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Syn</p>
+                  </div><button><span>{{word.other_meaning3_syn2}}</span></button>
+                </a>
                 {% endif %}
                 {% if word.other_meaning3_ant1 %}
-                <a href="{{word.other_meaning3_ant1}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning3_ant1}}</span></button></a>
+                <a href="{{word.other_meaning3_ant1}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Ant</p>
+                  </div><button><span>{{word.other_meaning3_ant1}}</span></button>
+                </a>
                 {% endif %}
                 {% if word.other_meaning3_ant2 %}
-                <a href="{{word.other_meaning3_ant2}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning3_ant2}}</span></button></a>
+                <a href="{{word.other_meaning3_ant2}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Ant</p>
+                  </div><button><span>{{word.other_meaning3_ant2}}</span></button>
+                </a>
                 {% endif %}
               </div>
               {% endif %}
@@ -710,15 +774,31 @@
 
               {% if (word.other_meaning4_syn1) or (word.other_meaning4_ant1) %}
               <div class="other-meaning-syn_ant">
-                <a href="{{word.other_meaning4_syn1}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning4_syn1}}</span></button></a>
+                <a href="{{word.other_meaning4_syn1}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Syn</p>
+                  </div><button><span>{{word.other_meaning4_syn1}}</span></button>
+                </a>
                 {% if word.other_meaning4_syn2 %}
-                <a href="{{word.other_meaning4_syn2}}"><div class="other-meaning-syn_ant_sign"><p>Syn</p></div><button><span>{{word.other_meaning4_syn2}}</span></button></a>
+                <a href="{{word.other_meaning4_syn2}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Syn</p>
+                  </div><button><span>{{word.other_meaning4_syn2}}</span></button>
+                </a>
                 {% endif %}
                 {% if word.other_meaning4_ant1 %}
-                <a href="{{word.other_meaning4_ant1}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning4_ant1}}</span></button></a>
+                <a href="{{word.other_meaning4_ant1}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Ant</p>
+                  </div><button><span>{{word.other_meaning4_ant1}}</span></button>
+                </a>
                 {% endif %}
                 {% if word.other_meaning4_ant2 %}
-                <a href="{{word.other_meaning4_ant2}}"><div class="other-meaning-syn_ant_sign"><p>Ant</p></div><button><span>{{word.other_meaning4_ant2}}</span></button></a>
+                <a href="{{word.other_meaning4_ant2}}">
+                  <div class="other-meaning-syn_ant_sign">
+                    <p>Ant</p>
+                  </div><button><span>{{word.other_meaning4_ant2}}</span></button>
+                </a>
                 {% endif %}
               </div>
               {% endif %}
@@ -743,16 +823,26 @@
       <section class="col-sm-3">
         <div class="ad-quiz-wrapper">
           <div class="ad-area-section"></div>
-          <div class="ad-area-sidebar"><p>We display ads to keep supporting the platform.</p></div>
+          <div class="ad-area-sidebar">
+            <p>We display ads to keep supporting the platform.</p>
+          </div>
         </div>
 
         <div class="quiz-area">
           <h1 class="quiz-area-question">Choose the most synonymous word to "Erfahrung":</h1>
           <ul class="quiz-answer-options">
-            <li><div class="quiz-answer-dot"></div>Persönlich</li>
-            <li><div class="quiz-answer-dot"></div>Leidvoll</li>
-            <li><div class="quiz-answer-dot"></div>Bitter</li>
-            <li><div class="quiz-answer-dot"></div>Traumatisch</li>
+            <li>
+              <div class="quiz-answer-dot"></div>Persönlich
+            </li>
+            <li>
+              <div class="quiz-answer-dot"></div>Leidvoll
+            </li>
+            <li>
+              <div class="quiz-answer-dot"></div>Bitter
+            </li>
+            <li>
+              <div class="quiz-answer-dot"></div>Traumatisch
+            </li>
           </ul>
         </div>
       </section>
@@ -770,7 +860,8 @@
           <div class="live-examples-box-twitter-logo"><img src="/static/img/twitter.svg"></div>
           <div class="live-examples-box-twitter-user-time">
             <div class="live-examples-box-user">
-              <img src="/static/img/twitter-user.png"><p>Ahmed Elkashef</p>
+              <img src="/static/img/twitter-user.png">
+              <p>Ahmed Elkashef</p>
             </div>
             <div class="live-examples-box-time">
               <p>1 Feb 2019</p>
@@ -783,7 +874,8 @@
           <div class="live-examples-box-twitter-logo"><img src="/static/img/twitter.svg"></div>
           <div class="live-examples-box-twitter-user-time">
             <div class="live-examples-box-user">
-              <img src="/static/img/twitter-user.png"><p>Ahmed Elkashef</p>
+              <img src="/static/img/twitter-user.png">
+              <p>Ahmed Elkashef</p>
             </div>
             <div class="live-examples-box-time">
               <p>1 Feb 2019</p>
@@ -839,6 +931,7 @@
       return s.charAt(0).toUpperCase() + s.slice(1)
     }
 
+    // expands the suggestion box
     function featureSuggestions(searchInput) {
       var search_url = "/worterbuch/autocomplete=" + searchInput;
       $(".new-suggestion").remove();
@@ -861,8 +954,10 @@
       });
     }
 
+    // remove the suggestion box
     function unfeatureSuggestions() {
-      $(".new-suggestion").remove();
+      $(".new-suggestion").hide('slow');
+      //$(".new-suggestion").remove();
       $(".site-heading").css("display", "");
       $(".suggestions-box").removeClass("suggestions-box-active");
       $(".suggestions-box").addClass("suggestions-box-inactive");
@@ -885,9 +980,9 @@
           break;
 
         case 40: // down
-        $("#searching-input").blur();
-        $(".new-suggestion").first().focus();
-        console.log("I did it");
+          $("#searching-input").blur();
+          $(".new-suggestion").first().focus();
+          console.log("I did it");
           break;
 
         default:
@@ -896,7 +991,7 @@
       e.preventDefault(); // prevent the default action (scroll / move caret)
     });
 
-
+    //controls when to expand or remove suggestion box
     $("#searching-input").keyup(function() {
       var searchInput = $('#searching-input').val();
       if (searchInput == "") {
@@ -904,6 +999,10 @@
       } else {
         featureSuggestions(searchInput);
       }
+    });
+
+    $(document).on('click', function (e) {
+     unfeatureSuggestions();
     });
 
     /* inserting german alphabet upon click*/
@@ -943,87 +1042,39 @@
 
 
   <script>
+
+    //expands vocabulary window
     $(".vocab-section-footer").click(function() {
-      $(".vocab-section-wrapper").css("height","1190px");
-      $(this).css("opacity","0");
-      $(".see-more-p").css("opacity","0");
-      $(".primary_def_example").css("margin-top","-40px");
+      $(".vocab-section-wrapper").css("height", "1190px");
+      $(this).css("opacity", "0");
+      $(".see-more-p").css("opacity", "0");
+      $(".primary_def_example").css("margin-top", "-40px");
     });
 
-    $(".see-more-p").click(function() {
-      $(".vocab-section-footer").focus();
-    });
 
+    // needs to be moved to server side (SECURITY)
     var app_key = "1242d51e-4cfc-462f-bc8c-dc78fb498ea8";
     var text = "{{word.vocabulary_word}}";
-    $.ajax({url: "https://api.wordassociations.net/associations/v1.0/json/search?apikey="+app_key+"&text="+text+"&lang=de&limit=5&type=response&indent=yes", success: function(result){
-      if(result.response["0"].items[0]) {
-        $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>"+result.response["0"].items[0].item+"</button></div>");
-      }
-      if (result.response["0"].items[1]) {
-        $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>"+result.response["0"].items[1].item+"</button></div>");
-      }
-      if (result.response["0"].items[2]) {
-        $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>"+result.response["0"].items[2].item+"</button></div>");
-      }
-      if (result.response["0"].items[3]) {
-        $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>"+result.response["0"].items[3].item+"</button></div>");
-      }
-      if (result.response["0"].items[4]) {
-        $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>"+result.response["0"].items[4].item+"</button></div>");
-      }
-    }});
-
-    // Twitter authentication
-    //---------------------------
-    //create nonce
-    function make_nonce(length) {
-       var result           = '';
-       var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-       var charactersLength = characters.length;
-       for ( var i = 0; i < length; i++ ) {
-          result += characters.charAt(Math.floor(Math.random() * charactersLength));
-       }
-       return result;
-    }
-    //build base String
-    var count = "2";
-    var oauth_consumer_key = "yLvz924QIt84mffCyWWb8XkG8";
-    var oauth_nonce = make_nonce(42);
-    var oauth_timestamp = Math.floor(Date.now() / 1000);
-    var oauth_token = "332494102-mwAgddhA4xtKClqxVCgqMzYmIJIuGt370TDjdnal";
-    var result_type = "mixed";
-    var q = "from%3Atwitterdev";
-    var baseURI = "GET&https://api.twitter.com/1.1/search/tweets.json&count="+count+"&oauth_consumer_key="+oauth_consumer_key+"&oauth_nonce="+oauth_nonce+"&oauth_signature_method=HMAC-SHA1&oauth_timestamp="+oauth_timestamp+"&oauth_token="+oauth_token+"&oauth_version=1.0&q=&result_type="+result_type;
-    var encodedURL = encodeURIComponent(baseURI);
-    //----------------------------------------------
-    //build signing keys
-    var APISecretKey = "VVheGElN9ve00i2pOHhOGCVLFSBdtu6MxN79Gjdi7NS4UHsm0H";
-    var accessTokenSecret = "vKJxpEPG55XQYn850memC0NPg8nw2cZMIQ8RzrN6azmbJ";
-    var signingKey = encodeURIComponent(APISecretKey) + "&" + encodeURIComponent(accessTokenSecret);
-    //----------------------------------------------
-    //Encode with sha1 hmac
-    var shaObj = new jsSHA("SHA-1", "TEXT");
-    shaObj.setHMACKey(signingKey, "TEXT");
-    shaObj.update(encodedURL);
-    var hmac = shaObj.getHMAC("B64");
-    var oauth_signature = hmac; //the oauth_signature is ready!
-    //----------------------------------------------
-    //compose url
-    var queryURL = "https://api.twitter.com/1.1/search/tweets.json?q="+q+"&result_type="+result_type+"&count="+count;
-    //console.log('OAuth oauth_consumer_key="'+oauth_consumer_key+'", oauth_nonce="'+oauth_nonce+'", oauth_signature="'+oauth_signature+'", oauth_signature_method="HMAC-SHA1", oauth_timestamp="'+oauth_timestamp+'", oauth_version="1.0"');
-    //"&oauth_consumer_key="+oauth_consumer_key+"&oauth_nonce="+oauth_nonce+"&oauth_signature="+oauth_signature+"&oauth_signature_method=HMAC-SHA1&oauth_timestamp="+oauth_timestamp+"&oauth_token="+oauth_token+"&oauth_version=1.0"
-    //console.log(queryURL);
     $.ajax({
-      url: queryURL,
-      type: "GET",
-      beforeSend: function(xhr) {
-        xhr.setRequestHeader('Authorization', 'OAuth oauth_consumer_key="'+oauth_consumer_key+'", oauth_nonce="'+oauth_nonce+'", oauth_signature="'+oauth_signature+'", oauth_signature_method="HMAC-SHA1", oauth_timestamp="'+oauth_timestamp+'", oauth_version="1.0"');
-      },
-      success: function(result){
-      //console.log(result);
-    }});
-    //console.log("Base64 output of signature", hmac);
+      url: "https://api.wordassociations.net/associations/v1.0/json/search?apikey=" + app_key + "&text=" + text + "&lang=de&limit=5&type=response&indent=yes",
+      success: function(result) {
+        if (result.response["0"].items[0]) {
+          $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>" + result.response["0"].items[0].item + "</button></div>");
+        }
+        if (result.response["0"].items[1]) {
+          $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>" + result.response["0"].items[1].item + "</button></div>");
+        }
+        if (result.response["0"].items[2]) {
+          $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>" + result.response["0"].items[2].item + "</button></div>");
+        }
+        if (result.response["0"].items[3]) {
+          $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>" + result.response["0"].items[3].item + "</button></div>");
+        }
+        if (result.response["0"].items[4]) {
+          $(".related-words-content").append("<div class='related-word-item'><div class='related-word-sign'><p>Add to queue</p></div><button>" + result.response["0"].items[4].item + "</button></div>");
+        }
+      }
+    });
   </script>
 </body>
 

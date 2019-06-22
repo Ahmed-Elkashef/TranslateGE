@@ -1,18 +1,13 @@
 from flask import Flask, render_template, request, url_for, redirect, jsonify
 from flask import flash, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
+from flask import session as login_session
+from flask import make_response
 from flask_uploads import UploadSet, configure_uploads, IMAGES
+from database_setup import Word, Base
 from sqlalchemy import create_engine, asc, literal
 from sqlalchemy.orm import sessionmaker
-from database_setup import Word, Base
-from flask import session as login_session
-import random
-import string
-import httplib2
-import json
-from flask import make_response
-import requests
-import os
+import random, string, httplib2, json, requests, os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///words.db'
